@@ -430,7 +430,7 @@
 //     str = str.toLowerCase()
 // //果 str 包含 viagra 或 XXX 就返回 true，否则返回 false。
 //   return str.includes('viagra') ||str.includes('XXX')  
-      
+
 // }
 
 // console.log(checkSpam('xxx'));
@@ -447,7 +447,26 @@
 // }
 // console.log(truncate("What I'd like to tell on this topic is:", 20));
 // console.log(truncate("What  ", 20));
-function extractCurrencyValue(str){
-    return +str.slice(1)
-}
-console.log(extractCurrencyValue('$120'));
+// function extractCurrencyValue(str){
+//     return +str.slice(1)
+// }
+// console.log(extractCurrencyValue('$120'));
+
+// let arr = ['apple','bule','orange']
+// // for (const i of arr) {
+// //     console.log(i);
+// // }
+
+// console.log(arr+1);
+// let style = ['jazz', 'blues']
+// style.push('rok-n-roll')
+// console.log(style);
+
+// style[Math.floor((style.length - 1) / 2)] = 'classics'
+// console.log(style);
+
+// style.shift()
+// console.log(style);
+
+// style.unshift('Rap ', 'Reggae')
+// console.log(style);

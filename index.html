@@ -221,16 +221,27 @@
         // }
         // alert(user);
         // alert(+user);
-        // alert(user+500);
-        function readNumber() {
-            let num;
-            do {
-                num = prompt('请输入数字','')
-            } while (!isFinite(num))
-            if (num === null || num === '') return null
-            return +num
-        }
-        alert(`Read: ${readNumber()}`);
+        // // alert(user+500);
+        // function readNumber() {
+        //     let num;
+        //     do {
+        //         num = prompt('请输入数字','')
+        //     } while (!isFinite(num))
+        //     if (num === null || num === '') return null
+        //     return +num
+        // }
+        // alert(`Read: ${readNumber()}`);
+       function sumInput(){
+           let arr = []
+           arr.push(+prompt('请给我一个数字',0))
+           console.log(arr);
+           let str = 0
+           for (let i = 0; i < arr.length; i++) {
+              str += arr[i]
+           }
+          alert( str)
+       }
+       sumInput()
     </script>
 </body>
 
