@@ -231,17 +231,42 @@
         //     return +num
         // }
         // alert(`Read: ${readNumber()}`);
-       function sumInput(){
-           let arr = []
-           arr.push(+prompt('请给我一个数字',0))
-           console.log(arr);
-           let str = 0
-           for (let i = 0; i < arr.length; i++) {
-              str += arr[i]
-           }
-          alert( str)
-       }
-       sumInput()
+    //    function sumInput(){
+    //        let arr = []
+    //        arr.push(+prompt('请给我一个数字',0))
+    //        console.log(arr);
+    //        let str = 0
+    //        for (let i = 0; i < arr.length; i++) {
+    //           str += arr[i]
+    //        }
+    //       alert( str)
+    //    }
+    //    sumInput()
+    function getMaxSubSum(arr) {
+	/*let max = 0
+    for (let i = 0; i < arr.length; i++) {
+        let str = 0
+        for (let j = i; j < arr.length; j++) {
+         str += arr[j] 
+         max = Math.max(max,str)
+        }
+        
+    }
+    return max
+    */
+   debugger
+	let max = 0;
+	let partiaSum = 0;
+	for (const item of arr) {
+		partiaSum += item;
+		max = Math.max(max, partiaSum);
+		if (partiaSum < 0) partiaSum = 0;
+	}
+    return max
+}
+let arr = [ -1, 2, 3, -9 ];
+console.log(getMaxSubSum(arr));
+
     </script>
 </body>
 

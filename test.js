@@ -429,7 +429,7 @@
 // function checkSpam(str){
 //     str = str.toLowerCase()
 // //果 str 包含 viagra 或 XXX 就返回 true，否则返回 false。
-//   return str.includes('viagra') ||str.includes('XXX')  
+//   return str.includes('viagra') ||str.includes('XXX')
 
 // }
 
@@ -470,3 +470,398 @@
 
 // style.unshift('Rap ', 'Reggae')
 // console.log(style);
+// function getMaxSubSum(arr) {
+// 	/*let max = 0
+//     for (let i = 0; i < arr.length; i++) {
+//         let str = 0
+//         for (let j = i; j < arr.length; j++) {
+//          str += arr[j]
+//          max = Math.max(max,str)
+//         }
+
+//     }
+//     return max
+//     */
+//    debugger
+// 	let max = 0;
+// 	let partiaSum = 0;
+// 	for (const item of arr) {
+// 		partiaSum += item;
+// 		max = Math.max(max, partiaSum);
+// 		if (partiaSum < 0) partiaSum = 0;
+// 	}
+//     return max
+// }
+// let arr = [ -1, 2, 3, -9 ];
+// console.log(getMaxSubSum(arr));
+
+// let arr = [1,2,3,4,8]
+// arr.splice(1,1,'o')
+// console.log(arr);
+// arr.splice(2,0 ,10,100)
+// console.log(arr);
+// let arr = [1,2,5]
+// let r = arr.splice(-1,0,3,4)
+// console.log(r);
+// console.log(arr);
+// let arr = ["t", "e", "s", "t"];
+// // let r = arr.slice(1,3)
+// let r = arr.slice(-1)
+// console.log(r);
+// let arr = [1,2]
+// let arrlike = {
+//     0: "something",
+//   length: 1
+// }
+// console.log(arr.concat( arrlike));
+// let arr =  [
+//     {
+//         id:0,
+//     },{
+//         id:1
+//     },
+//     {
+//         id:1
+//     },
+// ]
+
+//  let result = arr.filter((item,index,array)=>{
+//    return  item.id==1
+//  })
+//  console.log(result);
+
+// let result =  ["Bilbo", "Gandalf", "Nazgul"]
+// let re = result.map((item,index,array)=>{
+//     return item.length
+// })
+// console.log(result);
+// console.log(re);
+
+// let arr  = [1,3,1,13,12,18,1,2]
+// console.log(arr.sort());
+
+// console.log(arr.sort((a,b)=>a-b));
+// console.log(arr.sort((a,b)=>{
+//  a-b
+// }));
+// let str = '1,2,3,4,33'
+// let arr = [1,2,3,4,1]
+// let r = arr.reverse()
+// console.log(r);
+// console.log(arr);
+// function camelize(str){
+//  let arr
+//  arr = str.split('-')
+//  for (let i = 0; i < arr.length; i++) {
+//      if(i==0) continue
+//    arr[i] = arr[i][0].toUpperCase()+arr[i].slice(1)
+
+//  }
+//   return arr.join('')
+
+// }
+// let r = camelize("background-color-img")
+// console.log(r);
+// filterRange(arr, a, b)，该函数获取一个数组 arr，在其中查找数值大于或等于 a，且小于或等于 b 的元素，并将结果以数组的形式返回。
+
+// 该函数不应该修改原数组。它应该返回新的数组。
+// function filterRange(arr, a, b) {
+// 	// let newArr = []
+// 	if (!a && !b) return arr;
+// 	// for (let i = 0; i < arr.length; i++) {
+// 	//   if(arr[i]>=a && arr[i]<=b){
+// 	//     newArr.push(i)
+// 	//   }
+// 	// }
+// 	return arr.filter((item) => item >= a && item <= b);
+// }
+// let arr = [ 5, 3, 8, 1 ];
+// console.log(filterRange(arr,1,4));
+
+// console.log( arr);
+// 写一个函数 filterRangeInPlace(arr, a, b)，该函数获取一个数组 arr，并删除其中介于 a 和 b 区间以外的所有值。检查：a ≤ arr[i] ≤ b。
+
+// 该函数应该只修改数组。它不应该返回任何东西。
+// function filterRangeInPlace(arr, a, b){
+//  for (let i = 0; i < arr.length; i++) {
+//      if(arr[i]<a || arr[i]>b){
+//          arr.splice( i,1)
+//      }
+//  }
+// }
+
+// let arr = [ 5, 3, 8, 1 ,2];
+// filterRangeInPlace(arr,1,4)
+// console.log(arr);
+// function sort(arr){
+//   return  arr.sort((a,b)=>b-a)
+// }
+// let arr = [5, 2, 1, -10, 8];
+// console.log(sort(arr));
+//copySorted(arr)
+// function copySorted(arr){
+//          return arr.slice().sort()
+// }
+// let arr = ["HTML", "JavaScript", "CSS"];
+
+// let sorted = copySorted(arr);
+
+// console.log( sorted ); // CSS, HTML, JavaScript
+// console.log( arr ); // HTML, JavaScript, CSS (no changes)
+
+// function unique(arr){
+//     let newArr = []
+//      for (let i = 0; i < arr.length; i++) {
+//         //  if(!newArr.find(item=> arr[i]==item)){
+//         //     newArr.push(arr[i])
+//         //  }
+//          if(!newArr.includes(arr[i])){
+//             newArr.push(arr[i])
+
+//          }
+//      }
+//      return newArr
+// }
+// let strings = ["Hare", "Krishna", "Hare", "Krishna",
+//   "Krishna", "Krishna", "Hare", "Hare", ":-O"
+// ];
+
+// console.log( unique(strings) ); // Hare, Krishna, :-O
+// let users = [
+//     {id: 'john', name: "John Smith", age: 20},
+//     {id: 'ann', name: "Ann Smith", age: 24},
+//     {id: 'pete', name: "Pete Peterson", age: 31},
+//   ];
+
+//   let usersById = groupById(users);
+//   function groupById(users){
+//    return  users.reduce((obj,i,index,array)=>{
+//         obj[i.id] = i
+//         return obj
+
+//       },{})
+//   }
+// console.log(usersById);、
+
+// 1.防抖截流至少会写乞丐版
+// function  fangdou(func) {
+//     let
+// }
+//2.手写去重
+// let arr = [1,2,2,2,23,4,2,2,{name:123},{name:123},23]
+// function quchong(arr){
+//     let newArr = []
+//     for (let i = 0; i < arr.length; i++) {
+//         // if(!newArr.includes(arr[i]))   newArr.push(arr[i])
+//         let index = newArr.findIndex((item)=>{
+//             return item==arr[i]
+//         })
+//         if(index ==-1 ){
+//             newArr.push(arr[i])
+//         }
+//     }
+//     return newArr
+
+// }
+// console.log(quchong(arr));
+// 3.字符串连续出现次数最多的字符'
+// let str = '11222333333333eeeeeee';
+// function substrs(str) {
+// 	let obj = {};
+// 	strname = '';
+// 	max = 0;
+// 	for (let i = 0; i < str.length; i++) {
+// 		if (!obj[str.charAt(i)]) {
+// 			obj[str.charAt(i)] = 1;
+// 		} else {
+// 			obj[str.charAt(i)]++;
+// 		}
+// 	}
+//     console.log(obj);
+// 	for (var k in obj) {
+// 		if (obj[k] > max) {
+// 			max = obj[k];
+// 			strname = k;
+// 		}
+// 	}
+// 	return strname;
+// }
+// console.log(substrs(str));
+// let str = '123333397983777223';
+// function strReduce(str) {
+// 	let obj = {};
+// 	let strName = '';
+// 	let max = 0;
+// 	for (let i = 0; i < str.length; i++) {
+// 		if (!obj[str.charAt(i)]) {
+// 			obj[str.charAt(i)] = 1;
+// 		} else {
+// 			obj[str.charAt(i)]++;
+// 		}
+// 	}
+// 	for (const k in obj) {
+// 		if (obj.k > max) {
+// 			max = obj[k];
+// 			strName = k;
+// 		}
+// 	}
+// 	return strName;
+// }
+// // console.log(strReduce(str));
+
+// //扁平化数组 reduce
+// let arr = [ 1, [ 20, 9, 20, [ 2, 3, 4 ] ] ];
+// function bianpinghua(arr) {
+// 	return arr.reduce((array, i) => {
+// 		return array.concat(Array.isArray(i) ? bianpinghua(i) : i);
+// 	}, []);
+// }
+// // console.log(bianpinghua(arr));
+// //1-18位随机数
+// function createUUID(start, end) {
+// 	//创建一个0-9的数字组成的数组
+// 	var chars = '0123456789'.split('');
+// 	//创建一个随机8-18的数字
+// 	var len = Math.floor(Math.random() * (end - start - 1) + start);
+// 	//创建一个空数组，用来存放随机数
+// 	var uuid = [],
+// 		i;
+// 	// radix = radix || chars.length;
+// 	if (len) {
+// 		//循环给定随机数的长度，每次循环给生成一个随机数，将空数组的每一项都填满随机数
+// 		for (i = 0; i < len; i++) {
+// 			uuid[i] = chars[0 | (Math.random() * 10)];
+// 		}
+// 	}
+// 	//返回组合好通过切割的额随机数
+// 	return uuid.join('');
+// }
+// var num = createUUID(3,5);
+// function suijishu(n, m) {
+// 	let len  = Math.floor(Math.random() * (m - n  ) + n);//随机数长度
+// 	let arr = [];
+// 	for (let i = 0; i < len; i++) {
+// 		arr[i] = Math.floor(Math.random()*10)//每一次下标都是一次随机数
+
+// 	}
+// 	 return arr.join('')
+// }
+// console.log(suijishu(3,4));
+
+// console.log(Math.floor(Math.random()*10));
+// let arr = [ 1, [ 20, 9, 20, [ 2, 3, 4 ] ] ];
+// function bianpinghua(arr){
+// 	// return arr.join(',').split(',')
+// return arr.reduce((array,i)=>{
+// 	return array.concat(Array.isArray(i)?bianpinghua(i):i)
+
+// },[])
+// }
+// console.log(bianpinghua(arr));
+// this: 1. 改变函数this指向，传递参数 执行方法，返回方法
+// let obj = {
+// 	name: 'xc'
+// };
+// Function.prototype.mycall = function() {
+// 	// console.log(arguments);
+// 	let ctx = arguments[0] || Window;
+// 	let args = Array.from(arguments).slice(1);
+
+// 	ctx.fn = this;
+// 	let res = ctx.fn(args.join());
+// 	delete ctx.fn;
+// 	return res;
+// };
+// function foo(a, b, c, d) {
+// 	console.log(this.name);
+// 	console.log(a);
+// }
+// let name = 123;
+// foo.mycall(obj, 1, 2, 3, 3);
+// let obj =
+// let range = {
+// 	from: 1,
+// 	to: 5
+// };
+
+// range[Symbol.iterator] = function() {
+// 	return {
+// 		current: this.from,
+// 		last: this.to,
+// 		next() {
+// 			if (this.current <= this.last) {
+// 				return { done: false, value: this.current++ };
+// 			} else {
+// 				return { done: true };
+// 			}
+// 		}
+// 	};
+// };
+// let r = Array.from(range)
+// r.push(6)
+// console.log(r);
+// for (const num of range) {
+// 	console.log(num);
+// }'
+// let test = '123'
+// // for (const char of test) {
+// // 		console.log(char);
+// // }
+// let iterator = test[Symbol.iterator]()
+// while(true){
+// 	let result = iterator.next()
+// 	if(result.done) break
+// 	console.log(result.value);
+// }
+// let likeArray = {
+// 	0:'1',
+// 	1:"2",
+// 	length:2
+// }
+// let obj = {
+// 	num :10
+// }
+//  let arr = Array.from(likeArray,(i)=>i ** 10)
+//  arr.push('3')
+//  console.log(arr);
+// let str = '𝒳😂'
+// let chars  = Array.from(str)
+// console.log(chars);
+// let obj1 = {
+// name:'join'
+// }
+// let obj2 = {
+// 	name:"bob"
+// }
+// let map = new Map()
+// map.set(obj1,123)
+// .set(obj2,1456)
+// .set(1,333)
+// console.log(map);
+
+// let recipeMap = new Map([
+// 	['cucumber',500],
+// 	['tomatoes',300],
+// 	['onion',50]
+// ])
+// for (const i of recipeMap.keys()) {
+// 	console.log(i);
+// }
+// for (const i of recipeMap.values()) {
+// 	console.log(i);
+// }
+// for (const i of recipeMap.entries() ) {
+// 	console.log(i);
+// 
+// let obj = {
+// 	name:'join',
+// 	age:23
+// }
+// let objMap = new Map(Object.entries(obj))
+// console.log(objMap.get('name'));
+// console.log(objMap);
+// let map = new Map()
+// map.set('name',"join")
+// map.set('age',23)
+// let obj = Object.fromEntries(map)
+// console.log(obj);
