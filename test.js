@@ -852,7 +852,7 @@
 // }
 // for (const i of recipeMap.entries() ) {
 // 	console.log(i);
-// 
+//
 // let obj = {
 // 	name:'join',
 // 	age:23
@@ -865,3 +865,244 @@
 // map.set('age',23)
 // let obj = Object.fromEntries(map)
 // console.log(obj);
+
+// let set = new Set()
+//  let join = {name:'join'}
+//  let pete = {name:'pete'}
+//  let mary = {name:'mary'}
+
+//  set.add(join)
+//  set.add(pete)
+//  set.add(pete)
+//  set.add(join)
+//  set.add(mary)
+//   console.log(set.size)
+
+// let set = new Set([ 'oranges', 'apples', 'apples', 'bananas' ]);
+// let arr = [1,2,3,4]
+// // for (const value of set) {
+// // 	console.log(value);
+// // }
+// arr.forEach((value, valueTarget, set) => {
+// 	console.log(value);
+// 	console.log('valueTarget', valueTarget);
+// 	console.log('set', set);
+// 	/**
+// 	 * oranges
+// 	   valueTarget oranges
+// set Set(3) { 'oranges', 'apples', 'bananas' }
+// 	 */
+// });
+// function unique(arr) {
+// 	 	let set = new Set(arr)
+// 		 return Array.from(set)
+//   }
+
+//   let values = ["Hare", "Krishna", "Hare", "Krishna",
+// 	"Krishna", "Krishna", "Hare", "Hare", ":-O"
+//   ];
+
+//   console.log( unique(values) );
+// let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+// function aclean(arr){
+//  let map =  {}
+//  for (let i = 0; i < arr.length; i++) {
+// 	let mapobj = arr[i].toLowerCase().split('').sort().join('')
+// 	map[mapobj]  =arr[i]
+
+//  }
+// //  return Array.from(map.keys())
+// return Object.values(map).join('')
+// }
+// console.log(aclean(arr));
+// let map = new Map();
+
+// map.set("name", "John");
+
+// let keys =Array.from( map.keys());
+// console.log(keys);
+// // Error: keys.push is not a function
+// keys.push("more");
+// console.log(keys);
+// let obj = {name:'join'}
+// let str= ''
+// let weakmap = new WeakMap( )
+// weakmap.set(obj,'ok')
+// console.log(weakmap);
+// obj = null
+// console.log(weakmap);
+// let wisitedSet = new WeakSet()
+
+// let john = { name: "John" };
+// let pete = { name: "Pete" };
+// let mary = { name: "Mary" };
+
+// wisitedSet.add(john)
+// wisitedSet.add(pete)
+// wisitedSet.add(john)
+// console.log(wisitedSet.has(john));
+// console.log(wisitedSet.has(mary));
+// john = null
+// console.log(wisitedSet.has(john));
+// let messages = [
+// 	{text: "Hello", from: "John"},
+// 	{text: "How goes?", from: "John"},
+// 	{text: "See you soon", from: "Alice"}
+//   ];
+
+//   let weakmap = new WeakMap()
+// // for (const i of messages) {
+// // 	weakmap.set(i,)
+// // }
+// weakmap.set(messages[0],new Date())
+// console.log("读了吗？",weakmap.get(messages[0]));
+// console.log("读了吗？",weakmap.get(messages[1]));
+
+// console.log(weakmap);
+//   let messweak = new WeakSet()
+// 	messweak.add(messages[0])
+// 	messweak.add(messages[1])
+// 	messweak.add(messages[0])
+// console.log("读了吗？",messweak.has(messages[0]));
+// console.log("读了吗？",messweak.has(messages[2]));
+// //  for (let i = 0; i < messages.length; i++) {
+// // 	messweak.add(messages[i])
+// 	 messages.shift()
+// //  }
+
+// // messages[0] = null
+// console.log(messweak);
+// let user= {name:'john',age:19}
+// let id =   Symbol('id')
+//  console.log(id);
+// let prices = {
+// 	banana: 1,
+// 	orange: 2,
+// 	meat: 4,
+//   };
+//   let doubelPrices = Object.fromEntries(Object.entries(prices).map(i=>[i[0],i[1]*2]))
+//   console.log(doubelPrices);
+//   let pricesArr = Object.entries(prices)
+//  let proiceMap =  pricesArr.map((i)=>{
+// 	  return [i[0],i[1]*2]
+//   })
+
+// let  dublePrices = Object.fromEntries()
+// console.log(Object.keys(obj));
+// console.log(Object.values(obj));
+// console.log(Object.entries(obj));
+// console.log(Reflect.ownKeys(obj));
+// console.log(Object.getOwnPropertySymbols(obj));
+// let salaries = {};
+// function sumSalaries(obj) {
+// 	//   console.log(Object.values(obj));
+// 	let num = 0;
+// 	for (const i of Object.values(obj)) {
+// 		num += i;
+// 	}
+// 	return num;
+// }
+// console.log(sumSalaries(salaries)); // 650
+// let user = {
+// 	name: 'John',
+// 	age: 30
+//   };
+//   let map = new Map(Object.entries(user))
+// //   map.set('name','john')
+// //   function count(user){
+// // 	  return Object.keys(user).length
+// //   }
+// //   console.log( count(user) ); // 2
+// console.log(Object.entries(user));
+// console.log( map);
+// let [a,,b,c] = [1,2,3,4,5]// 2被逗号忽略
+// console.log(a);
+// console.log(b);
+// console.log(c);
+// let user = {
+// 	name: "John",
+// 	age: 30
+//   };
+
+// for( let  [key,value] of Object.entries(user)){
+// 	console.log(key+':'+value);
+// }
+
+// let arr = [1,2,3,5,1,2,4]
+// function foo(arr){
+//     for (let i = 0; i < arr.length-1; i++) { //循环次数-1 第一个拿出来的数值可以不参与比较
+//         for (let j = 0; j < arr.length-1-i;j++) { //将最小值/最大值放置了末尾可以不再进行比较
+//         let temp
+//         // 使用变量交换位置
+//              if(arr[j]<arr[j+1]){
+//                 // temp = arr[j]
+//                 // arr[j ]= arr[j+1]
+//                 // arr[j+1] = temp
+
+// 				//解构赋值交换位置
+// 				[arr[j+1],arr[j]] = [arr[j],arr[j+1]]
+//              }
+//         }
+//     }
+//     return arr
+// }
+// foo(arr)
+
+// let arr = [1,2,3,4,5]
+// let [a,b,c,...rest] =arr
+
+// console.log(a)
+// console.log(b)
+// console.log(rest)
+// let obj = {
+// 	title:'Menu',
+// 	width:200,
+// 	height:200,
+// 	background:'pink'
+
+// }
+// // let width,height
+//  ({width,height } = obj)
+// console.log(width);
+// console.log(height);
+// // console.log(rest);
+// let options = {
+// 	size: {
+// 		width: 100,
+// 		height: 200
+// 	},
+// 	items: [ 'cake', 'dont' ],
+// 	extra: true
+// };
+// //size和items没有相应的变量，因为我们取得是他们的内容
+// let { size: { width, hieght }, items: [ item1, item2 ], title = 'Menu' } = options;
+// console.log(width);
+// console.log(item1);
+// let user = {
+// 	name: 'John',
+// 	years: 30
+// };
+// let { name, years: age, isAdmin = false } = user;
+// console.log(name);
+// console.log(age);
+// console.log(isAdmin);
+let salaries = {
+	"John": 100,
+	"Pete": 300,
+	"Mary": 250
+  };
+function topSalary(salaries){
+	let max = 0
+	let maxName = null
+	for (const [key,value] of Object.entries(salaries)) {
+		 if(value>max ){
+			max = value
+			maxName = key
+		 }
+	}
+	console.log(maxName);
+	return maxName
+ 
+}
+topSalary(salaries)
