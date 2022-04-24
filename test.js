@@ -1086,23 +1086,105 @@
 // let { name, years: age, isAdmin = false } = user;
 // console.log(name);
 // console.log(age);
-// console.log(isAdmin);
-let salaries = {
-	"John": 100,
-	"Pete": 300,
-	"Mary": 250
-  };
-function topSalary(salaries){
-	let max = 0
-	let maxName = null
-	for (const [key,value] of Object.entries(salaries)) {
-		 if(value>max ){
-			max = value
-			maxName = key
-		 }
-	}
-	console.log(maxName);
-	return maxName
+// // console.log(isAdmin);
+// let salaries = {
+// 	"John": 100,
+// 	"Pete": 300,
+// 	"Mary": 250
+//   };
+// function topSalary(salaries){
+// 	let max = 0
+// 	let maxName = null
+// 	for (const [key,value] of Object.entries(salaries)) {
+// 		 if(value>max ){
+// 			max = value
+// 			maxName = key
+// 		 }
+// 	}
+// 	console.log(maxName);
+// 	return maxName
  
-}
-topSalary(salaries)
+// }
+// topSalary(salaries)
+/* vue2和vue3的对比
+* 速度更快
+1. 重写了虚拟dom的实现
+2. 编译模版的优化
+3. 更高效的组件初始化
+4. ssr速度提高了 2-3倍
+* 体积更小
+使用了tree-shaking功能。
+tree-shaking原理：
+    1. 收集模块，并且记录到模块关系图中
+    2. 遍历模块关系图标记模块导出变量有没有被使用
+    3. 生产产物时，若模块标记没有被其他模块使用则删除对应的导出语句
+* 更易维护
+ composition Api 
+  1. 可以与现有的Options一起使用
+  2. 灵活的逻辑组合与复用
+  3. vue3模块可以和其他框架搭配使用
+更好的Typescript支持
+享受到自动的类型定义提示
+vue3新增特性：
+1. framents
+多个根结点
+2. Teleport
+可以将模板移动到dom之外中挂载vue app之外的其他位置.方便书写定位和z-index
+ <teleport to="#xxxclassname">
+ <teleport>
+3. createRenderer 构建自定义渲染器，将vue的开发模型 vnode引用在其他平台
+4. composition Api 
+组合式API， 将相同功能的变量进行一个集中式的管理
+setup(){}入口函数
+包括：
+ * 响应式系统api：
+    * ref
+    * reactive
+    * redonly
+    * compulte
+    * watch
+    * watchEffect 立即执行的watch
+ * 生命周期钩子
+    * beforcreate 
+    * created
+	* beforeMount
+	* mounted
+	* beforeupdate
+	* updetaed
+	* beforedestory
+	* onBeforeUnmount
+	* onUnmounted
+	* errorCaptured
+	* 
+	* moun
+
+diff算法
+和vue2相比 做了静态标记，在静态标记的地方添加一个flag标志，下次发生变化时直接对该标记进行比较
+静态提升：
+vue3 中不参与更新的元素， 会做静态提升，只会渲染一次，下次渲染直接复用，剩去重复创建节点
+事件监听缓存 
+click 行为被视为动态绑定，每次都会去追踪他的变化	
+ssr优化
+
+proxy vue3 
+采用新的proxy API es6里的方法
+proxy可以劫持整个对象
+reflect 劫持
+1.多层代理，通过get方法来判断
+好处：不会一上来就递归data数据，而是当获取这个属性时候的时候再去判断是不是对象 是对象里的属性在递归进行reflect劫持，
+weakmap（）
+生成弱引用，解决proxy重复代理
+缺点： 兼容性不好IE11不兼容
+Reflect ： 类似于Object对象，其中包括了object的静态函数，但reflect并不是一个函数对象，所以他是一个不可构造的
+
+composition Api和 options API
+1. 逻辑复用和逻辑组织方面，composition优于options
+2. composition api 几乎是函数，方便做类型判断
+3. 方便tree-shaking压缩代码
+4. 没有this的使用，减少this指向不明的问题
+5. 混合代码方便
+6. 可以兼容options 
+
+ 
+*/
+
