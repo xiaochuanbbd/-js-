@@ -429,7 +429,7 @@
 // function checkSpam(str){
 //     str = str.toLowerCase()
 // //果 str 包含 viagra 或 XXX 就返回 true，否则返回 false。
-//   return str.includes('viagra') ||str.includes('XXX')  
+//   return str.includes('viagra') ||str.includes('XXX')
 
 // }
 
