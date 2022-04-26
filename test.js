@@ -469,4 +469,172 @@
 // console.log(style);
 
 // style.unshift('Rap ', 'Reggae')
-// console.log(style);
+// // console.log(style);
+// function Calculator(str){
+//   this.method = {
+//     '-':(a,b)=>a-b,
+//     '+':(a,b)=>a+b,
+//   }
+//  this.calculate = function (str){
+
+//    let arr = str.split(' ')  
+//    a = +arr[0]
+//    op = arr[1]
+//    b = +arr[2]
+//    if(isNaN(a) ||isNaN(b)){
+//      return
+//    }
+//   return this.method[op](a,b)
+//  }
+//  this.addMethod = function(name, func){
+//    this.method[name] =func
+//  }
+// }
+// let calc = new Calculator;
+// calc.addMethod('*',(a,b)=>a*b)
+// console.log( calc.calculate("3 * 7") ); // 10
+
+// let john = { name: "John", age: 25 };
+// let pete = { name: "Pete", age: 30 };
+// let mary = { name: "Mary", age: 28 };
+
+// let users = [ john, pete, mary ];
+// let names = users.map((item)=>{
+//     return item.name
+// })
+// console.log(users);
+// console.log(names);
+// let john = { name: "John", surname: "Smith", id: 1 };
+// let pete = { name: "Pete", surname: "Hunt", id: 2 };
+// let mary = { name: "Mary", surname: "Key", id: 3 };
+
+// let users = [ john, pete, mary ];
+// let usersMapped = users.map((item)=>{
+//   return {fullName:item.name +' '+ item.surname,id:item.id}
+// })
+// console.log(usersMapped);
+// let john = { name: "John", age: 25 };
+// let pete = { name: "Pete", age: 30 };
+// let mary = { name: "Mary", age: 28 };
+
+// let arr = [ pete, john, mary ];
+// function sortByAge(arr){
+//    return arr.sort((a,b)=> b.age-a.age)
+// }
+// console.log(sortByAge(arr));
+// let arr = [1, 2, 3];
+
+// function shuffle(array) {
+//   for (let i = array.length - 1; i > 0; i--) {
+//     let j = Math.floor(Math.random() * (i + 1)); // 从 0 到 i 的随机索引
+
+//     // 交换元素 array[i] 和 array[j]
+//     // 我们使用“解构分配（destructuring assignment）”语法来实现它
+//     // 你将在后面的章节中找到有关该语法的更多详细信息
+//     // 可以写成：
+//     // let t = array[i]; array[i] = array[j]; array[j] = t
+//     [array[i], array[j]] = [array[j], array[i]];
+//   }
+//   return array
+// }
+// // console.log(shuffle(arr));
+// shuffle(arr)
+// // 所有可能排列的出现次数
+// let count = {
+//   '123': 0,
+//   '132': 0,
+//   '213': 0,
+//   '231': 0,
+//   '321': 0,
+//   '312': 0
+// };
+
+// for (let i = 0; i < 1000000; i++) {
+//   let array = [1, 2, 3];
+//   shuffle(array);
+//   count[array.join('')]++;
+// }
+
+// // 显示所有可能排列的出现次数
+// for (let key in count) {
+//   console.log(`${key}: ${count[key]}`);
+// }
+// let john = {
+//   name: "John",
+//   age: 25
+// };
+// let pete = {
+//   name: "Pete",
+//   age: 30
+// };
+// let mary = {
+//   name: "Mary",
+//   age: 29
+// };
+
+// let arr = [john, pete, mary];
+
+// function getAverageAge(users) {
+//   let num = users.reduce((num, item) => {
+//   return  num + item.age
+
+//   }, 0)
+//   return num/users.length
+// }
+// console.log(getAverageAge(arr));
+// function pow(x,n){
+//   let result = 1
+//   for(let i = 0;i<n;i++){
+//     result *=x
+//   }
+//   return result
+// }
+// function pow(x,n){
+//   if(n==1) {
+//     return x
+//   }else{
+//     return x * pow(x,n-1)
+//   }
+// }
+// console.log(pow(2,3));
+// 2* (2,3-1) = 4
+// 4* (2-1) =   
+let company = { // 是同一个对象，简洁起见被压缩了
+  sales: [{
+    name: 'John',
+    salary: 1000
+  }, {
+    name: 'Alice',
+    salary: 1600
+  }],
+  development: {
+    sites: [{
+      name: 'Peter',
+      salary: 2000
+    }, {
+      name: 'Alex',
+      salary: 1800
+    }],
+    internals: [{
+      name: 'Jack',
+      salary: 1300
+    }]
+  }
+};
+let a = sumSalaries(company)
+console.log(a);
+
+function sumSalaries(department) {
+  if (Array.isArray(department)) {
+    return department.reduce((price, i) => {
+      return price += i.salary
+    }, 0)
+  } else {
+    let sun = 0
+    for (const subdep of Object.values(department)) {
+      sun += sumSalaries(subdep)
+    }
+    return sun
+
+  }
+}
