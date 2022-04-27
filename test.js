@@ -97,19 +97,83 @@
 //   user.age = 23
 //   console.log(user);
 //   console.log(userjson);
-let room = {
-	number: 23
+// let room = {
+// 	number: 23
+//   };
+  
+//   let meetup = {
+// 	title: "Conference",
+// 	occupiedBy: [{name: "John"}, {name: "Alice"}],
+// 	place: room
+//   };
+  
+//   // 循环引用
+// //   room.occupiedBy = meetup;
+// //   meetup.self = meetup;
+//   console.log( JSON.stringify(meetup, function replacer(key, value) {
+//  return (key!=='' && value ==meetup) ?undefined :value
+//   }));
+//  function sumTo(num){
+// 	//  let n = 0
+// 	//  for (let i = 1; i <= num; i++) {
+// 	// 	 n+=i
+// 	//  }
+// 	// if(num===1){
+// 	// 	return 1
+// 	// }else{
+// 	// 	num+=sumTo(num-1)
+// 	// }
+// 	//  return num
+// 	return num * (num+1) / 2
+//  }
+//  console.log(sumTo(100));
+// function factorial(num){
+// 	if(num===1){
+// 		return 1
+// 	}else{
+// 		num *= factorial(num-1)
+// 	}
+// 	return num
+// }
+// console.log(factorial(5));
+// //下一个数字是前两个数字的和
+// function fib(n){
+//   return n<=1?n:fib(n-1) + fib(n-2)
+// }
+// console.log(fib(77));//自上而下的动态规划
+// function fib(n){
+// 	let a = 1
+// 	let b = 1
+// 	for (let i = 3; i <=n; i++) {
+// 		 let c = a+b
+// 		 a = b
+// 		 b = c
+		
+// 	}
+// return b
+// }
+let list = {
+	value: 1,
+	next: {
+	  value: 2,
+	  next: {
+		value: 3,
+		next: {
+		  value: 4,
+		  next: null
+		}
+	  }
+	}
   };
   
-  let meetup = {
-	title: "Conference",
-	occupiedBy: [{name: "John"}, {name: "Alice"}],
-	place: room
-  };
+  function printList(list) {
+	 if(!list.next){
+		 console.log(list.value);
+	 }else{
+		 printList(list.next)
+		 console.log(list.value);
+	 }
   
-  // 循环引用
-//   room.occupiedBy = meetup;
-//   meetup.self = meetup;
-  console.log( JSON.stringify(meetup, function replacer(key, value) {
- return (key!=='' && value ==meetup) ?undefined :value
-  }));
+  }
+  
+  printList(list);
