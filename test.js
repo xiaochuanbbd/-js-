@@ -26,7 +26,7 @@
 // 	}
 // 	let min = Math.floor(diff/60000)
 // 	if(min<60){
-// 		return min+"min. ago" 
+// 		return min+"min. ago"
 // 	}
 // 	let d = date
 // 	d = [
@@ -36,7 +36,7 @@
 // 		'0' + d.getHours(),
 // 		'0' + d.getMinutes()
 // 	  ].map(component => component.slice(-2)); // 得到每个组件的后两位
-	
+
 // 	return d.slice(0,3).join('.')+' '+d.slice(3).join(':')
 // }
 // // console.log(formatDate(new Date(new Date - 86400 * 1000)))
@@ -100,13 +100,13 @@
 // let room = {
 // 	number: 23
 //   };
-  
+
 //   let meetup = {
 // 	title: "Conference",
 // 	occupiedBy: [{name: "John"}, {name: "Alice"}],
 // 	place: room
 //   };
-  
+
 //   // 循环引用
 // //   room.occupiedBy = meetup;
 // //   meetup.self = meetup;
@@ -148,32 +148,206 @@
 // 		 let c = a+b
 // 		 a = b
 // 		 b = c
-		
+
 // 	}
 // return b
 // }
-let list = {
-	value: 1,
-	next: {
-	  value: 2,
-	  next: {
-		value: 3,
-		next: {
-		  value: 4,
-		  next: null
-		}
-	  }
-	}
-  };
-  
-  function printList(list) {
-	 if(!list.next){
-		 console.log(list.value);
-	 }else{
-		 printList(list.next)
-		 console.log(list.value);
-	 }
-  
-  }
-  
-  printList(list);
+// let list = {
+// 	value: 1,
+// 	next: {
+// 	  value: 2,
+// 	  next: {
+// 		value: 3,
+// 		next: {
+// 		  value: 4,
+// 		  next: null
+// 		}
+// 	  }
+// 	}
+//   };
+
+//   function printList(list) {
+// 	 if(!list.next){
+// 		 console.log(list.value);
+// 	 }else{
+// 		 printList(list.next)
+// 		 console.log(list.value);
+// 	 }
+
+//   }
+
+//   printList(list);
+// function ReverseList(pHead) {
+// 	let cur = pHead;
+// 	if (cur == null || cur.next == null) return cur;
+// 	let next = null;
+// 	let pre = nul;
+// 	while (cur) {
+// 		next = cur.next;
+// 		cur.next = pre;
+// 		next = pre;
+// 		pre = next;
+// 	}
+// 	return next;
+// }
+// console.log(ReverseList({ }));
+// function maopao(arr) {
+// 	for (let i = 0; i < arr.length - 1; i++) {
+// 		for (let j = 0; j < arr.length - i; j++) {
+// 			if (arr[j] > arr[j + 1]) [ arr[j + 1], arr[j] ] = [ arr[j], arr[j + 1] ];
+// 		}
+// 	}
+// 	return arr;
+// }
+//选择排序是从数组的开头开始，将第一个元素和其他元素作比较，检查完所有的元素后，最小的放在第一个位置，接下来再开始从第二个元素开始，重复以上一直到最后。
+// function xuanze(arr){
+// 	for (let i = 0; i < arr.length; i++) {
+// 	  for (let j = i; j < arr.length; j++) {
+// 		  if( arr[j]<arr[i]){
+// 			  [arr[i],arr[j]] = [arr[j],arr[i]]
+// 		  }
+
+// 	  }
+
+// 	}
+// 	return arr
+// }
+// function charupaixu(arr) {
+// 	// 插入排序核心–扑克牌思想： 就想着自己在打扑克牌，接起来一张，放哪里无所谓，再接起来一张，比第一张小，放左边，继续接，可能是中间数，就插在中间…依次
+// 	for (let i = 1; i < arr.length; i++) {
+// 		for (let j = i; j >0; j--) {
+// 			if (arr[j] >arr[j - 1]) {
+// 				[ arr[j ], arr[j-1] ] = [ arr[j-1], arr[j ] ];
+// 			}
+// 		}
+// 	}
+// 	return arr;
+// }
+/*选择一个基准元素，将列表分割成两个子序列；
+对列表重新排序，将所有小于基准值的元素放在基准值前面，所有大于基准值的元素放在基准值的后面；
+分别对较小元素的子序列和较大元素的子序列重复步骤1和2*/
+
+let arr = [ 1, 2, 31, 1, 3 ];
+// function mappao(array) {
+// 	for (let i = 0; i < array.length - 1; i++) {
+// 		for (let j = 0; j < array.length - i; j++) {
+// 			if (array[j] < array[j + 1]) {
+// 				[ array[j + 1], array[j] ] = [ array[j], array[j + 1] ];
+// 			}
+// 		}
+// 	}
+// 	return array;
+// }
+
+// function charu(arr) {
+// 	if (arr.length <= 0) {
+// 		return arr;
+// 	}
+// 	let left = [],
+// 		right = [],
+// 		current = arr.splice(0, 1);
+// 	for (let i = 0; i < arr.length; i++) {
+// 		if (current < arr[i]) {
+// 			left.push(arr[i]);
+// 		} else {
+// 			right.push(arr[i]);
+// 		}
+// 	}
+// 	return charu(left).concat(current, charu(right));
+// }
+// console.log(charu([ 3, 2, 1, 4 ]));
+// let flotArr = [ 1, [ 3, 2, 3, [ 23, 1, [ 1, [ 2, [ 2 ] ] ] ] ] ];
+// // console.log(flotArr.flat(2));
+// // function myFlat(arr) {
+// // 	return !Array.isArray(arr)
+// // 		? arr
+// // 		: arr.reduce((array, i) => {
+// // 				return array.concat(myFlat(i));
+// // 			}, []);
+// // }
+// console.log(myFlat(flotArr));
+// let list = {
+// 	value: 1,
+// 	next: {
+// 		value: 2,
+// 		next: {
+// 			value: 3,
+// 			next: {
+// 				value: 4,
+// 				next: null
+// 			}
+// 		}
+// 	}
+// };
+// function printList(list) {
+	//  while(list){
+	// 	console.log(list.value);
+	// 	list =  list.next
+	//  }
+	// console.log(list.value);
+	// if(list.next){
+	// 	printList(list.next)
+	// }
+	//  if(list.next){
+	// 	 printList(list.next)
+	//  }
+	//  console.log(list.value);
+	// while(list){
+	// 	list = list.next
+	// 	console.log(list.value);
+	// }
+// 	let arr = [];
+// 	let tmp = list;
+// 	while (tmp) {
+// 		arr.push(tmp.value);
+// 		tmp = tmp.next;
+// 	}
+// 	for (let i = arr.length-1; i >= 0; i--) {
+// 		console.log(arr[i]);
+// 	}
+// }
+// // printList(list);
+//  function sunAll(a,...args){
+// 	 let sum = 0
+// 	 console.log(args);
+// 	 for (const i of args) {
+// 		sum+=i	 
+// 	 }
+// 	 return sum
+//  }
+//  console.log(sunAll(1,2,3));
+// function sunAll( ){
+// 	console.log(arguments); // { '0': 1, '1': 2, '2': 3 }
+// }
+// let obj = {
+// 	0:'jon',
+// 	length:1
+// }
+// // console.log([...obj]);//obj is not iterable
+// console.log(Array.from(obj));//obj is not iterable
+// let arr1= [1,2,3]
+// let arrCopy = [...arr1]
+// function sayHiBye(firstname,lastName){
+// 	function getFullName(){
+// 		return firstname+lastName
+// 	}
+// 	console.log('hello'+getFullName());
+// 	console.log('bye'+getFullName());
+// }
+// console.log(sayHiBye('zhang','san'));
+// function makeCounter(){
+// 	let count = 0
+// 	return function (){
+// 		return count++
+// 	}
+// }
+// let counter = makeCounter()
+// console.log(counter());
+// console.log(counter());
+// console.log(counter());
+ 
+let  a   
+var b
+console.log(a);
+a = 100
+console.log(a);
