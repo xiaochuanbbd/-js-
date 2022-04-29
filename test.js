@@ -227,7 +227,7 @@
 对列表重新排序，将所有小于基准值的元素放在基准值前面，所有大于基准值的元素放在基准值的后面；
 分别对较小元素的子序列和较大元素的子序列重复步骤1和2*/
 
-let arr = [ 1, 2, 31, 1, 3 ];
+// let arr = [ 1, 2, 31, 1, 3 ];
 // function mappao(array) {
 // 	for (let i = 0; i < array.length - 1; i++) {
 // 		for (let j = 0; j < array.length - i; j++) {
@@ -280,22 +280,22 @@ let arr = [ 1, 2, 31, 1, 3 ];
 // 	}
 // };
 // function printList(list) {
-	//  while(list){
-	// 	console.log(list.value);
-	// 	list =  list.next
-	//  }
-	// console.log(list.value);
-	// if(list.next){
-	// 	printList(list.next)
-	// }
-	//  if(list.next){
-	// 	 printList(list.next)
-	//  }
-	//  console.log(list.value);
-	// while(list){
-	// 	list = list.next
-	// 	console.log(list.value);
-	// }
+//  while(list){
+// 	console.log(list.value);
+// 	list =  list.next
+//  }
+// console.log(list.value);
+// if(list.next){
+// 	printList(list.next)
+// }
+//  if(list.next){
+// 	 printList(list.next)
+//  }
+//  console.log(list.value);
+// while(list){
+// 	list = list.next
+// 	console.log(list.value);
+// }
 // 	let arr = [];
 // 	let tmp = list;
 // 	while (tmp) {
@@ -311,7 +311,7 @@ let arr = [ 1, 2, 31, 1, 3 ];
 // 	 let sum = 0
 // 	 console.log(args);
 // 	 for (const i of args) {
-// 		sum+=i	 
+// 		sum+=i
 // 	 }
 // 	 return sum
 //  }
@@ -345,9 +345,194 @@ let arr = [ 1, 2, 31, 1, 3 ];
 // console.log(counter());
 // console.log(counter());
 // console.log(counter());
- 
-let  a   
-var b
-console.log(a);
-a = 100
-console.log(a);
+
+// let  a
+// var b
+// console.log(a);
+// a = 100
+// console.log(a);
+// let phrase = "Hello";
+
+// if (true) {
+//   let user = "John";
+
+//   function sayHi() {
+//     console.log(`${phrase}, ${user}`);
+//   }
+// }
+// sayHi();
+// function sum(a){
+
+// 	return function (b){
+
+// 		return  a+b
+// 	}
+// }
+// console.log(sum(1)(2));
+// let x = 1;
+
+// function func() {
+//   console.log(x); // ?
+
+//   let x = 2;
+// }
+
+// func();
+// function isBetween(a, b) {
+// 	return function(x) {
+// 		console.log(x);
+// 		return x >= a && x <= b;
+// 	};
+// // }
+// let arr = [ 1, 2, 3, 4, 5, 6, 7 ];
+// // console.log(arr.filter(isBetween(3, 6))); // 3,4,5,6
+
+// console.log(arr.filter(inArray([1, 2, 10]))); // 3,4,5,6
+// function inArray(arr) {
+// 	return function(x) {
+// 		 return  arr.includes(x)
+// 	};
+// }
+// let users = [
+// 	{ name: "John", age: 20, surname: "Johnson" },
+// 	{ name: "Pete", age: 18, surname: "Peterson" },
+// 	{ name: "Ann", age: 19, surname: "Hathaway" }
+//   ];
+//   function byField(str){
+// 	return function(a,b){
+// 	return 	a[str]>b[str]?1:-1
+// 	}
+//   }
+//   console.log(users.sort(byField('name')))
+//   console.log(users.sort(byField('age')))
+// function makeArmy() {
+// 	let shooters = [];
+
+// 	let i = 0;
+// 	// while (i < 10) {
+// 	// 	let _i = i
+
+// 	//   }
+// 	for (let i = 0; i < 10; i++) {
+// 		let shooter = function() {
+// 			// 创建一个 shooter 函数，
+// 			console.log(i); // 应该显示其编号
+// 		};
+// 		shooters.push(shooter); // 将此 shooter 函数添加到数组中
+// 	}
+// 	return shooters;
+// 	// ……返回 shooters 数组
+// }
+
+// let army = makeArmy();
+
+// // ……所有的 shooter 显示的都是 10，而不是它们的编号 0, 1, 2, 3...
+// army[0](); // 编号为 0 的 shooter 显示的是 10
+// army[1](); // 编号为 1 的 shooter 显示的是 10
+// army[2](); // 10，其他的也是这样。
+// //i引用的变量并没有修改
+// if(true){
+// 	var test = true
+// }
+// console.log(test);
+// function sayHi(){
+// 	console.log(phrase);
+// 	var phrase = 'hello'
+// }
+// sayHi()
+// var a = 1
+// var a = 2
+// let b  =1
+// let b = 2
+// const c = 1
+// cnst c = 2
+// (function say(){
+// 	var a = 1
+// 	console.log(a);
+// })()
+// // cons
+// var a  = 1
+// let b = 1
+// console.log(global.a);
+// console.log(globalThis.b);
+// function sayHi(){
+// 	console.log('hi');
+// 	let count = 0
+// 	count++//和sayHi.count不是同一个东西
+// 	sayHi.count++//和let count 不是同一个东西
+// }
+// sayHi.count = 0
+// sayHi()
+// console.log(sayHi.count)
+// function
+// makeCounter() {
+//   // 不需要这个了
+//   let count = 0
+//     function counter() {
+//     return counter.count++;
+//   };
+
+//   return counter;
+// }
+
+// let counter = makeCounter();
+// counter.count = 10;
+
+// console.log( counter() ); // 0
+// console.log( counter() ); // 1
+// let sayHi = function(who){
+// 	console.log(`hello ,${who}`);
+// }
+// let sayHi2  = function func(who){//制定内部函数
+// 	 if(who){
+// 		 console.log(who);
+// 	 }else{
+// 		 func('no')//可以自己调用自己
+// 	 }
+
+// }
+//  let wellcome = sayHi2
+//  sayHi2 = null
+// wellcome(123)
+// function makeCounter() {
+// 	let 
+// 	function counter() {
+// 		counter.set = function(num) {
+// 			counter.count = num;
+// 		};
+// 		counter.decrease = function() {
+// 			return counter.count--;
+// 		};
+// 		return counter.count++;
+// 	}
+
+// 	return counter;
+// }
+// let counter = makeCounter();
+// // counter.count = 10;
+// counter();
+// console.log(counter.count);
+// counter.set(20);
+// console.log(counter.count);
+// counter.decrease();
+// console.log(counter.count);
+// // sum(0)(1)(2)(3)(4)(5) == 15//
+// function sum(a){
+// 	let num = a
+//     function f (b){
+// 		num += b
+// 		return f
+// 	}
+// 	f.toString = function(){
+// 		return num
+// 	}
+// 	return f
+// }
+
+// console.log(sum(1)(2)(3)==6);
+let obj = {
+	a:1,
+	b:1
+
+}
+console.log(obj.toJSON());
