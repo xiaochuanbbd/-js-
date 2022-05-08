@@ -1,583 +1,540 @@
-// '' + 1 + 0; //‘10’
-// '' - 1 + 0; //  -1
-// true + false; //1
-// 6 / '3'; //2
-// '2' * '3'; //6
-// 4 + 5 + 'px'; //‘9px‘
-// '$' + 4 + 5; //“$45”
-// '4' - 2; // 2
-// '4px' - 2; //NaN
-// '  -9  ' + 5; //-9 5
-// '  -9  ' - 5; //'-14'
-// null + 1; //1
-// undefined + 1; //NaN
-// ' \t \n' - 2; //-2
-// // console.log(undefined ==0);
-// // console.log(undefined ===undefined);
-// // console.log(null ===null);
-// 5 > 4; //true
-// 'apple' > 'pineapple'; //false
-// '2' > '12'; //false true
-// undefined == null; //true
-// undefined === null; //false
-// null == '\n0\n'; //true
-// null === +'\n0\n'; //false
-// let result;
-
-// result = (a + b < 4 )? 'Below' : 'Over';
-// let login = 'aaa'
-// let message = login=='Employee'
-// ?'hello'
-// :login=='Director'
-// ?'Greetings'
-// :login==''
-// ?'No login'
-// :''
-// console.log(message);
-// let a  ,b=2
-// console.log(a ?? '暂无');
-// let firstname = null
-// let lastname = null
-// let nickname = 'xc'
-// console.log(firstname ?? lastname?? nickname?? 'none');
-// let i = 0
-// while(i<3){
-//     console.log(i);
-//     i++
+//  let now   =  new Date( )
+//  console.log(now.getHours()+4);
+//  now.setHours(now.getHours()+6)
+//  console.log(now);
+// let start =Date.now()
+// for (let i = 0; i < 1000000000; i++) {
+//  let dosomething = i*i*i
 // }
-// let i = 3
-// while(i){
-//     console.log(i);
-//     i--
+// let end =Date.now()
+// console.log(end-start);
+// function getSecondsToTomorrow(){
+// 	let now =new Date()
+// 	let tomorrow = new Date(now.getFullYear(),now.getMonth(),now.getDate()+1,)
+// let diff = tomorrow-now
+// return Math.floor(diff/1000)
 // }
-// let i = 0
-// do{
-//     console.log(i);
-//     i++
-// } while(i<3)
-// for (let i = 0; i <10; i++) {
-//      if(i % 2!==0) {continue}
-//      console.log(i);
-
-// }
-// for (let i = 0;i<3;i++){
-//     console.log(i);
-// }
-// let i = 0
-// while(i<3){
-//     console.log(i++);
-// }
-// let n = 10;
-// sushu:
-// for (let i = 2; i <=n; i++) {
-// 	for (let j = 2; j < i; j++) {
-// 		if (i % j == 0) continue sushu;
+// console.log( getSecondsToTomorrow());
+// function formatDate(date){
+// 	let diff = new Date()-date
+// 	if(diff<1000){
+// 		return 'right now'
 // 	}
-// 	console.log(i);
-// }
-// let x = 'value1112'
-// switch (x){
-//     case 'value1':
-//     console.log(1);
-//     break;
-//     case 'value2':
-//         console.log(2);
-//         break;
-//         default:
-//             console.log('nodefined');
-//             break
-// }
-// let b = 'Edge'
-// if(b==='Edge'){
-//     console.log("You've got the Edge!" );
-// }else if(b==='Chrome'||b==='Firefox'||b==='Safari'||b==='Opera'){
+// 	let sec = Math.floor(diff/1000)// 毫秒转为秒
+// 	if(sec<60){
+// 		return  sec +"sec.ago"
+// 	}
+// 	let min = Math.floor(diff/60000)
+// 	if(min<60){
+// 		return min+"min. ago"
+// 	}
+// 	let d = date
+// 	d = [
+// 		'0' + d.getDate(),
+// 		'0' + (d.getMonth() + 1),
+// 		'' + d.getFullYear(),
+// 		'0' + d.getHours(),
+// 		'0' + d.getMinutes()
+// 	  ].map(component => component.slice(-2)); // 得到每个组件的后两位
 
-// console.log('Okay we support these browsers too');
-// }else{
-// console.log('We hope that this page looks ok!');
+// 	return d.slice(0,3).join('.')+' '+d.slice(3).join(':')
+// }
+// // console.log(formatDate(new Date(new Date - 86400 * 1000)))
+// let id = Symbol('id')
+// let student = {
+// 	name: 'John',
+// 	age: 30,
+// 	isAdmin: false,
+// 	courses: ['html', 'css', 'js'],
+// 	wife: null,
+// 	obj:{
+// 		name:'bob',
+// 		age:20
+// 	},
+// 	a:undefined,
+// [id]:id,
+// say:function(){
 
-// }
-
-// function showMessage(from ,text = aaa()){
-//     console.log(from +text);
-// }
-// function aaa(){
-// return 2
-// }
-// showMessage
-
-// let obj  ={
-//     a:{
-//         b:{
-//             c:123
-//         }
-//     }
-// }
-// console.log(obj.a.b.f??'-');
-// function hello(name) {
-// 	let phrase = `hello ,${name}!`;
-// 	say(phrase);
 // }
 
-// function say(phrase) {
-// 	alert(`** ${phrase} **`);
+//   };
+//   let json = JSON.stringify(student)
+//   console.log(json);
+//   console.log(typeof json);
+// let room = {
+// 	number:23
 // }
+// let meetup = {
+// 	title:'a',
+// 	obj:[{name:'join'},{name:'alice'}]
+// 	,
+// 	place:room
+// }
+// room.occupiedBy = meetup
+//  let json = JSON.stringify(meetup,function replacer(key,value){
+// 	 return  (key==='occupiedBy')?undefined:value
+//  },7)
+//  console.log(json);
+// let room = {
+// 	number:23,
+// 	toJSON(){
+// 		return 13
+// 	}
+// }
+// let json = JSON.stringify(room)
+// // console.log(json);
+// let str = '{"title":"Conference","date":"2017-11-30T12:00:00.000Z"}';
 
-// hello('xxc')
-// let fruit = 'apple'
-// let bag = {
-//     [fruit +'123']:5
-// }
-// console.log(bag.apple123);
-// let obj = {
-//     return:0,
-//     Symbol:123,
-//     0:0
-// }
-// console.log(obj.Symbol);
-// console.log(obj[0]);
-// console.log(obj['0']);
-// console.log('0' in obj);
+// console.log( meetup.date.getDate() ); // Error!
+
 // let user = {
-//     name:'join',
-//     surnname:'smith',
-
-// }
-// user.name = 'Peta'
-// delete user.name
-
-// function isEmpty(obj){
-//     for (const key in obj) {
-
-//            return false
-
-//     }
-//     return true
-// }
-// let salaries = {
-//     John: 100,
-//     Ann: 160,
-//     Pete: 130
-//   }
-//   function qiuhe(obj){
-//       let total = 0
-//     for (const key in obj) {
-//         total+=  obj[key]
-//     }
-//     return total
-// }
-// console.log(qiuhe(salaries));
-
-// // 在调用之前
-// let menu = {
-//     width: 200,
-//     height: 300,
-//     title: "My menu"
+// 	name: "John Smith",
+// 	age: 35
 //   };
 
-//  console.log( multiplyNumeric(menu));
-//   function multiplyNumeric(menu){
-//       for (const k in menu) {
-//           if (typeof menu[k]==='number') {
-//               menu[k] *=2
-//           }
-//       }
-//       return menu
+//   let json =JSON.stringify(user)
+//   let userjson = JSON.parse(json)
+//   user.age = 23
+//   console.log(user);
+//   console.log(userjson);
+// let room = {
+// 	number: 23
+//   };
+
+//   let meetup = {
+// 	title: "Conference",
+// 	occupiedBy: [{name: "John"}, {name: "Alice"}],
+// 	place: room
+//   };
+
+//   // 循环引用
+// //   room.occupiedBy = meetup;
+// //   meetup.self = meetup;
+//   console.log( JSON.stringify(meetup, function replacer(key, value) {
+//  return (key!=='' && value ==meetup) ?undefined :value
+//   }));
+//  function sumTo(num){
+// 	//  let n = 0
+// 	//  for (let i = 1; i <= num; i++) {
+// 	// 	 n+=i
+// 	//  }
+// 	// if(num===1){
+// 	// 	return 1
+// 	// }else{
+// 	// 	num+=sumTo(num-1)
+// 	// }
+// 	//  return num
+// 	return num * (num+1) / 2
+//  }
+//  console.log(sumTo(100));
+// function factorial(num){
+// 	if(num===1){
+// 		return 1
+// 	}else{
+// 		num *= factorial(num-1)
+// 	}
+// 	return num
+// }
+// console.log(factorial(5));
+// //下一个数字是前两个数字的和
+// function fib(n){
+//   return n<=1?n:fib(n-1) + fib(n-2)
+// }
+// console.log(fib(77));//自上而下的动态规划
+// function fib(n){
+// 	let a = 1
+// 	let b = 1
+// 	for (let i = 3; i <=n; i++) {
+// 		 let c = a+b
+// 		 a = b
+// 		 b = c
+
+// 	}
+// return b
+// }
+// let list = {
+// 	value: 1,
+// 	next: {
+// 	  value: 2,
+// 	  next: {
+// 		value: 3,
+// 		next: {
+// 		  value: 4,
+// 		  next: null
+// 		}
+// 	  }
+// 	}
+//   };
+
+//   function printList(list) {
+// 	 if(!list.next){
+// 		 console.log(list.value);
+// 	 }else{
+// 		 printList(list.next)
+// 		 console.log(list.value);
+// 	 }
+
 //   }
 
-// let user = {
-//     name:'join',
-//     age:30
+//   printList(list);
+// function ReverseList(pHead) {
+// 	let cur = pHead;
+// 	if (cur == null || cur.next == null) return cur;
+// 	let next = null;
+// 	let pre = nul;
+// 	while (cur) {
+// 		next = cur.next;
+// 		cur.next = pre;
+// 		next = pre;
+// 		pre = next;
+// 	}
+// 	return next;
 // }
-// let u2 = {
-//     name:'bob',
-//     age:23
+// console.log(ReverseList({ }));
+// function maopao(arr) {
+// 	for (let i = 0; i < arr.length - 1; i++) {
+// 		for (let j = 0; j < arr.length - i; j++) {
+// 			if (arr[j] > arr[j + 1]) [ arr[j + 1], arr[j] ] = [ arr[j], arr[j + 1] ];
+// 		}
+// 	}
+// 	return arr;
 // }
-// // let clone = {}
-// // for (const k in user) {
+//选择排序是从数组的开头开始，将第一个元素和其他元素作比较，检查完所有的元素后，最小的放在第一个位置，接下来再开始从第二个元素开始，重复以上一直到最后。
+// function xuanze(arr){
+// 	for (let i = 0; i < arr.length; i++) {
+// 	  for (let j = i; j < arr.length; j++) {
+// 		  if( arr[j]<arr[i]){
+// 			  [arr[i],arr[j]] = [arr[j],arr[i]]
+// 		  }
 
-// //         clone[k] = user[k]
+// 	  }
 
+// 	}
+// 	return arr
+// }
+// function charupaixu(arr) {
+// 	// 插入排序核心–扑克牌思想： 就想着自己在打扑克牌，接起来一张，放哪里无所谓，再接起来一张，比第一张小，放左边，继续接，可能是中间数，就插在中间…依次
+// 	for (let i = 1; i < arr.length; i++) {
+// 		for (let j = i; j >0; j--) {
+// 			if (arr[j] >arr[j - 1]) {
+// 				[ arr[j ], arr[j-1] ] = [ arr[j-1], arr[j ] ];
+// 			}
+// 		}
+// 	}
+// 	return arr;
+// }
+/*选择一个基准元素，将列表分割成两个子序列；
+对列表重新排序，将所有小于基准值的元素放在基准值前面，所有大于基准值的元素放在基准值的后面；
+分别对较小元素的子序列和较大元素的子序列重复步骤1和2*/
+
+// let arr = [ 1, 2, 31, 1, 3 ];
+// function mappao(array) {
+// 	for (let i = 0; i < array.length - 1; i++) {
+// 		for (let j = 0; j < array.length - i; j++) {
+// 			if (array[j] < array[j + 1]) {
+// 				[ array[j + 1], array[j] ] = [ array[j], array[j + 1] ];
+// 			}
+// 		}
+// 	}
+// 	return array;
+// }
+
+// function charu(arr) {
+// 	if (arr.length <= 0) {
+// 		return arr;
+// 	}
+// 	let left = [],
+// 		right = [],
+// 		current = arr.splice(0, 1);
+// 	for (let i = 0; i < arr.length; i++) {
+// 		if (current < arr[i]) {
+// 			left.push(arr[i]);
+// 		} else {
+// 			right.push(arr[i]);
+// 		}
+// 	}
+// 	return charu(left).concat(current, charu(right));
+// }
+// console.log(charu([ 3, 2, 1, 4 ]));
+// let flotArr = [ 1, [ 3, 2, 3, [ 23, 1, [ 1, [ 2, [ 2 ] ] ] ] ] ];
+// // console.log(flotArr.flat(2));
+// // function myFlat(arr) {
+// // 	return !Array.isArray(arr)
+// // 		? arr
+// // 		: arr.reduce((array, i) => {
+// // 				return array.concat(myFlat(i));
+// // 			}, []);
 // // }
-// // let clone = Object.assign({},user,u2)
-// // let clone = {...user}
-// // clone.name = 'Pate'
-// // console.log(clone);
-// console.log(user.name);
-// debugger
-// user=null
-// console.log(user.name);
-
-// let calculator = {
-// 	// ……你的代码……
-// 	//read() 提示输入两个值，并将其保存为对象属性。
-// 	read(x, y) {
-// 		this.x = x;
-// 		this.x = y;
-// 	},
-// 	// sum() 返回保存的值的和。
-// 	sum(x, y) {
-// 		return x + y;
-// 	},
-// 	// mul() 将保存的值相乘并返回计算结果。
-// 	mul(x, y) {
-// 		return x * y;
+// console.log(myFlat(flotArr));
+// let list = {
+// 	value: 1,
+// 	next: {
+// 		value: 2,
+// 		next: {
+// 			value: 3,
+// 			next: {
+// 				value: 4,
+// 				next: null
+// 			}
+// 		}
 // 	}
 // };
-
-//  calculator.sum(1,2)
-// console.log(calculator);
-// console.log(calculator.sum(1,2));
-// console.log(calculator.mul(1,2));
-// console.log(+undefined);
-// console.log(+{});
-// console.log(+'123最次啊吗');
-// console.log(+'123');
-// console.log(+null);
-// console.log(+false);
-
-// function myNew (context){
-//    this = {}
-
-//     return this
+// function printList(list) {
+//  while(list){
+// 	console.log(list.value);
+// 	list =  list.next
+//  }
+// console.log(list.value);
+// if(list.next){
+// 	printList(list.next)
 // }
-// let user = new function(){
-//     this.name = "join";
-//     this.isAdmin = false
+//  if(list.next){
+// 	 printList(list.next)
+//  }
+//  console.log(list.value);
+// while(list){
+// 	list = list.next
+// 	console.log(list.value);
 // }
-// console.log(user);
-// function user(){
-//     console.log(new.target);
+// 	let arr = [];
+// 	let tmp = list;
+// 	while (tmp) {
+// 		arr.push(tmp.value);
+// 		tmp = tmp.next;
+// 	}
+// 	for (let i = arr.length-1; i >= 0; i--) {
+// 		console.log(arr[i]);
+// 	}
 // }
-
-// user()
-// new user()
+// // printList(list);
+//  function sunAll(a,...args){
+// 	 let sum = 0
+// 	 console.log(args);
+// 	 for (const i of args) {
+// 		sum+=i
+// 	 }
+// 	 return sum
+//  }
+//  console.log(sunAll(1,2,3));
+// function sunAll( ){
+// 	console.log(arguments); // { '0': 1, '1': 2, '2': 3 }
+// }
 // let obj = {
-//     name:10
+// 	0:'jon',
+// 	length:1
 // }
-// function A() {
-//     return obj
+// // console.log([...obj]);//obj is not iterable
+// console.log(Array.from(obj));//obj is not iterable
+// let arr1= [1,2,3]
+// let arrCopy = [...arr1]
+// function sayHiBye(firstname,lastName){
+// 	function getFullName(){
+// 		return firstname+lastName
+// 	}
+// 	console.log('hello'+getFullName());
+// 	console.log('bye'+getFullName());
+// }
+// console.log(sayHiBye('zhang','san'));
+// function makeCounter(){
+// 	let count = 0
+// 	return function (){
+// 		return count++
+// 	}
+// }
+// let counter = makeCounter()
+// console.log(counter());
+// console.log(counter());
+// console.log(counter());
 
-//  }
-// function B() {
-//     return obj
+// let  a
+// var b
+// console.log(a);
+// a = 100
+// console.log(a);
+// let phrase = "Hello";
 
-//  }
+// if (true) {
+//   let user = "John";
 
-// let a = new A;
-// let b = new B;
+//   function sayHi() {
+//     console.log(`${phrase}, ${user}`);
+//   }
+// }
+// sayHi();
+// function sum(a){
 
-// console.log( a == b ); // true
+// 	return function (b){
 
-// function Calculator(a, b) {
-// 	this.read = function() {
-// 		this.a = a;
-// 		this.b = b;
+// 		return  a+b
+// 	}
+// }
+// console.log(sum(1)(2));
+// let x = 1;
+
+// function func() {
+//   console.log(x); // ?
+
+//   let x = 2;
+// }
+
+// func();
+// function isBetween(a, b) {
+// 	return function(x) {
+// 		console.log(x);
+// 		return x >= a && x <= b;
 // 	};
-// 	this.sum = function() {
-// 		return this.a + this.b;
-// 	};
-// 	this.mul = function() {
-// 		return this.a * this.b;
-// 	};
-// }
-// let calculator = new Calculator(10,20);
-// calculator.read();
-
-// console.log('Sum=' + calculator.sum());
-// console.log('Mul=' + calculator.mul());
-// console.log({}+{});
-// console.log('123'-'12');
-// console.log(alert({}));
-// Object.defineProperties
-/*
-了解的，比如
-1. 响应式原理从defined Properties换到了proxy代理数据，减少了对data数据的监听，更加添加和修改属性。 
-2. vue3的options采用的是composition API vue2是直接在vue组件内书写，现在是按需引入需要的option，提升了代码解藕程度
-3. vue2 组件内的的template只允许一个根节点，vue3不受限制
-4. vue3的hook代替vue的mixin,封装了可以复用的代码
-5. vue2用的是webpack，现在用了全新的vite,vite是充分利用浏览器接管打包程序的部分工作.打包编译更快
-。。。。
-// */
-// console.log( String(null));
-// console.log( String(undefined));
-// console.log( String(false));
-// console.log( String(true));
-// console.log( String({}));
-// console.log( String(1));
-// console.log( String(function(){}));
-// console.log( String(Symbol('id')));
-// console.log( String([]));
-
-// console.log(toString(undefined));
-// console.log(toString(false));
-// console.log(+false);
-// console.log(+'123hhhh');
-// console.log(+'ddd');
-// console.log(+{});
-// console.log(+'');
-
-// let a = 10000000
-// let b = 1_000_000_000
-// let c = 7.3e9
-// let d = 1e-6
-// console.log(a,b,c,d);
-// let num = 12323
-// console.log(12323..toString(36)); //9ib
-
-// let num  = 2223.927392377397
-// console.log(Math.floor(num));
-// console.log(Math.ceil(num));
-// console.log(Math.round(num));
-// console.log(Math.trunc(num));
-
-// function foo(num){
-//     return Math.round(num * 100 ) /100//小数点后两位
-// }
-// console.log(foo(num));
-// let a = {}
-// let b= {}
-// console.log(Object.is(NaN,NaN)) //true
-// console.log(Object.is(0,-0))//false
-// console.log(Object.is(a,b))//false
-// console.log(Object.is(NaN===NaN))//false
-
-// console.log(Math.max('1110',0,9,7,1,{}));
-
-// function nums(n,m){
-//     if(isFinite(n) && isFinite(m)){
-//         return +n + +m
-//     }else{
-//         return'请输入数字哦 ～'
-//     }
-// }
-// console.log(nums(10,10));
-// console.log(nums(10,{}));
-// console.log(nums(10,false));
-// console.log(nums(10,'10'));
-
-// console.log(Math.round(6.35*10)/10);
-// console.log(Math.round(6.35*10)/10);
-// console.log((6.35 * 10).toFixed(20));
-// 随机生成min-max的随机数取整数
-// 1. 生成 0.5-3.5的值，用round 四舍五入 从而将所需的概率添加到取值范围的边界
-// function random(min, max) {
-//     let rand = min - 0.5 +Math.random()* (max-min+1)
-//     return Math.round(rand)
-// }
-// // 2.用math.floor向下取整来取范围从min-max+1的随机数
-// function random2(min,max){
-//     let rand = min + Math.random() * (max +1 -min)
-//     return Math.floor(rand)
-// }
-// // console.log(Math.random()*5+1);
-// console.log(random(1, 3));
-// console.log(random2(1, 3));
-
-// console.log(Math.round(Math.random()* 10));
-
-// function xunhuan(num){
-//     let str = ''
-//     for (let i = 0; i < num; i++) {
-//         if(i==0){}
-//         str+=   Math.floor(Math.random() *10 )
-
-//     }
-//     return str
-// }
-
-// console.log(xunhuan(4));
-// let str = "Winsww"
-// console.log(str.indexOf('w',3));
-// console.log(str.indexOf('1'));
-//
-// let str = 'As sly as a fox, as strong as an ox';
-// let target  = 'as'
-
-// let pos = 0
-// while(true){
-//     let foundPos= str.indexOf(target,pos)
-//     if(foundPos==-1) break
-//     console.log(foundPos);
-//     pos = foundPos+1
-// }
-// let str = 'http://127.0.0.1:9529/#/contest/add?id=282&name=xc';
-// str = str.slice(str.indexOf('?') + 1, str.length);
-// let strArr = str.split('&');
-// let obj = {};
-// for (let i = 0; i < strArr.length; i++) {
-// 	let key = strArr[i].substring(0, strArr[i].indexOf('='));
-// 	let value = strArr[i].substring(strArr[i].indexOf('=') + 1, strArr[i].length);
-// 	obj[key] = value;
-// }
-// console.log(obj);
-// let str  = 'stringify2'
-// // console.log(str.slice(6,2));
-// console.log(str.substring(-2,-4));
-// console.log(str.slice(-2,-1));‘
-// let str = " \`待填项\`分（单次罚时/分钟）`"
-// // this.form.ACMcompetitionRulesMarkdown = this.form.ACMcompetitionRulesMarkdown.replace(/待填项/g, this.form.penaltyTenErrorScore)
-// // /^a.*b$/
-// let str2  = '提交错误次数 ×  <code>待填项</code> <code>待填项</code>分（单次罚时/分钟'
-// console.log(str.replace(/`.*?`/,'123'))
-
-// console.log(str2.replace(/<code>(.*?)<\/code>/,'123'))
-// function ucFirst(str){
-//   return  str[0].toUpperCase()+ str.slice(1)
-// }
-// console.log(ucFirst('join'));
-// function checkSpam(str){
-//     str = str.toLowerCase()
-// //果 str 包含 viagra 或 XXX 就返回 true，否则返回 false。
-//   return str.includes('viagra') ||str.includes('XXX')
-
-// }
-
-// console.log(checkSpam('xxx'));
-// 创建函数 truncate(str, maxlength) 来检查 str 的长度，如果超过 maxlength —— 应使用 "…" 来代替 str 的结尾部分，长度仍然等于 maxlength。
-
-// 函数的结果应该是截断后的文本（如果需要的话）。
-// function truncate(str, maxlength){
-//     if(str.length>maxlength){
-//         return   str.slice(0,maxlength-1)+'...'
-
-//     }else{
-//         return str
-//     }
-// }
-// console.log(truncate("What I'd like to tell on this topic is:", 20));
-// console.log(truncate("What  ", 20));
-// function extractCurrencyValue(str){
-//     return +str.slice(1)
-// }
-// console.log(extractCurrencyValue('$120'));
-
-// let arr = ['apple','bule','orange']
-// // for (const i of arr) {
-// //     console.log(i);
 // // }
+// let arr = [ 1, 2, 3, 4, 5, 6, 7 ];
+// // console.log(arr.filter(isBetween(3, 6))); // 3,4,5,6
 
-// console.log(arr+1);
-// let style = ['jazz', 'blues']
-// style.push('rok-n-roll')
-// console.log(style);
-
-// style[Math.floor((style.length - 1) / 2)] = 'classics'
-// console.log(style);
-
-// style.shift()
-// console.log(style);
-
-// style.unshift('Rap ', 'Reggae')
-// // console.log(style);
-// function Calculator(str){
-//   this.method = {
-//     '-':(a,b)=>a-b,
-//     '+':(a,b)=>a+b,
+// console.log(arr.filter(inArray([1, 2, 10]))); // 3,4,5,6
+// function inArray(arr) {
+// 	return function(x) {
+// 		 return  arr.includes(x)
+// 	};
+// }
+// let users = [
+// 	{ name: "John", age: 20, surname: "Johnson" },
+// 	{ name: "Pete", age: 18, surname: "Peterson" },
+// 	{ name: "Ann", age: 19, surname: "Hathaway" }
+//   ];
+//   function byField(str){
+// 	return function(a,b){
+// 	return 	a[str]>b[str]?1:-1
+// 	}
 //   }
-//  this.calculate = function (str){
+//   console.log(users.sort(byField('name')))
+//   console.log(users.sort(byField('age')))
+// function makeArmy() {
+// 	let shooters = [];
 
-//    let arr = str.split(' ')  
-//    a = +arr[0]
-//    op = arr[1]
-//    b = +arr[2]
-//    if(isNaN(a) ||isNaN(b)){
-//      return
-//    }
-//   return this.method[op](a,b)
-//  }
-//  this.addMethod = function(name, func){
-//    this.method[name] =func
-//  }
-// }
-// let calc = new Calculator;
-// calc.addMethod('*',(a,b)=>a*b)
-// console.log( calc.calculate("3 * 7") ); // 10
+// 	let i = 0;
+// 	// while (i < 10) {
+// 	// 	let _i = i
 
-// let john = { name: "John", age: 25 };
-// let pete = { name: "Pete", age: 30 };
-// let mary = { name: "Mary", age: 28 };
-
-// let users = [ john, pete, mary ];
-// let names = users.map((item)=>{
-//     return item.name
-// })
-// console.log(users);
-// console.log(names);
-// let john = { name: "John", surname: "Smith", id: 1 };
-// let pete = { name: "Pete", surname: "Hunt", id: 2 };
-// let mary = { name: "Mary", surname: "Key", id: 3 };
-
-// let users = [ john, pete, mary ];
-// let usersMapped = users.map((item)=>{
-//   return {fullName:item.name +' '+ item.surname,id:item.id}
-// })
-// console.log(usersMapped);
-// let john = { name: "John", age: 25 };
-// let pete = { name: "Pete", age: 30 };
-// let mary = { name: "Mary", age: 28 };
-
-// let arr = [ pete, john, mary ];
-// function sortByAge(arr){
-//    return arr.sort((a,b)=> b.age-a.age)
-// }
-// console.log(sortByAge(arr));
-// let arr = [1, 2, 3];
-
-// function shuffle(array) {
-//   for (let i = array.length - 1; i > 0; i--) {
-//     let j = Math.floor(Math.random() * (i + 1)); // 从 0 到 i 的随机索引
-
-//     // 交换元素 array[i] 和 array[j]
-//     // 我们使用“解构分配（destructuring assignment）”语法来实现它
-//     // 你将在后面的章节中找到有关该语法的更多详细信息
-//     // 可以写成：
-//     // let t = array[i]; array[i] = array[j]; array[j] = t
-//     [array[i], array[j]] = [array[j], array[i]];
-//   }
-//   return array
-// }
-// // console.log(shuffle(arr));
-// shuffle(arr)
-// // 所有可能排列的出现次数
-// let count = {
-//   '123': 0,
-//   '132': 0,
-//   '213': 0,
-//   '231': 0,
-//   '321': 0,
-//   '312': 0
-// };
-
-// for (let i = 0; i < 1000000; i++) {
-//   let array = [1, 2, 3];
-//   shuffle(array);
-//   count[array.join('')]++;
+// 	//   }
+// 	for (let i = 0; i < 10; i++) {
+// 		let shooter = function() {
+// 			// 创建一个 shooter 函数，
+// 			console.log(i); // 应该显示其编号
+// 		};
+// 		shooters.push(shooter); // 将此 shooter 函数添加到数组中
+// 	}
+// 	return shooters;
+// 	// ……返回 shooters 数组
 // }
 
-// // 显示所有可能排列的出现次数
-// for (let key in count) {
-//   console.log(`${key}: ${count[key]}`);
+// let army = makeArmy();
+
+// // ……所有的 shooter 显示的都是 10，而不是它们的编号 0, 1, 2, 3...
+// army[0](); // 编号为 0 的 shooter 显示的是 10
+// army[1](); // 编号为 1 的 shooter 显示的是 10
+// army[2](); // 10，其他的也是这样。
+// //i引用的变量并没有修改
+// if(true){
+// 	var test = true
 // }
-// let john = {
-//   name: "John",
-//   age: 25
-// };
-// let pete = {
-//   name: "Pete",
-//   age: 30
-// };
-// let mary = {
-//   name: "Mary",
-//   age: 29
-// };
+// console.log(test);
+// function sayHi(){
+// 	console.log(phrase);
+// 	var phrase = 'hello'
+// }
+// sayHi()
+// var a = 1
+// var a = 2
+// let b  =1
+// let b = 2
+// const c = 1
+// cnst c = 2
+// (function say(){
+// 	var a = 1
+// 	console.log(a);
+// })()
+// // cons
+// var a  = 1
+// let b = 1
+// console.log(global.a);
+// console.log(globalThis.b);
+// function sayHi(){
+// 	console.log('hi');
+// 	let count = 0
+// 	count++//和sayHi.count不是同一个东西
+// 	sayHi.count++//和let count 不是同一个东西
+// }
+// sayHi.count = 0
+// sayHi()
+// console.log(sayHi.count)
+// function
+// makeCounter() {
+//   // 不需要这个了
+//   let count = 0
+//     function counter() {
+//     return counter.count++;
+//   };
 
-// let arr = [john, pete, mary];
+//   return counter;
+// }
 
-// function getAverageAge(users) {
-//   let num = users.reduce((num, item) => {
-//   return  num + item.age
+// let counter = makeCounter();
+// counter.count = 10;
 
+// console.log( counter() ); // 0
+// console.log( counter() ); // 1
+// let sayHi = function(who){
+// 	console.log(`hello ,${who}`);
+// }
+// let sayHi2  = function func(who){//制定内部函数
+// 	 if(who){
+// 		 console.log(who);
+// 	 }else{
+// 		 func('no')//可以自己调用自己
+// 	 }
+
+// }
+//  let wellcome = sayHi2
+//  sayHi2 = null
+// wellcome(123)
+// function makeCounter() {
+// 	let 
+// 	function counter() {
+// 		counter.set = function(num) {
+// 			counter.count = num;
+// 		};
+// 		counter.decrease = function() {
+// 			return counter.count--;
+// 		};
+// 		return counter.count++;
+// 	}
+
+// 	return counter;
+// }
+// let counter = makeCounter();
+// // counter.count = 10;
+// counter();
+// console.log(counter.count);
+// counter.set(20);
+// console.log(counter.count);
+// counter.decrease();
+// console.log(counter.count);
+// // sum(0)(1)(2)(3)(4)(5) == 15//
+// function sum(a){
+// 	let num = a
+//     function f (b){
+// 		num += b
+// 		return f
+// 	}
+// 	f.toString = function(){
+// 		return num
+// 	}
+// 	return f
+// }
+
+// console.log(sum(1)(2)(3)==6);
+let obj = {
+	a:1,
+	b:1
+
+<<<<<<< HEAD
 //   }, 0)
 //   return num/users.length
 // }
@@ -1263,3 +1220,7 @@ console.log(key);
 for (const iterator of arr) {
   console.log(iterator);
 }
+=======
+}
+console.log(obj.toJSON());
+>>>>>>> 62f52f9b5e39b4789b5445f821c3f6631934097b
