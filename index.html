@@ -6,268 +6,638 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+
+    </style>
 </head>
 
 <body>
     <!-- <script src="./test.js"></script> -->
     <script>
-        //    const my = '187e82'
-        //    function say(){
-        //        const my = 'djwies'
-        //        console.log(my);
-        //    }
-        //    say()
-        //    let name =   'ILya'
-        //    alert(`hello ${1}`)
-        //    alert(`hello ${'name'}`)
-        // //    alert(`hello ${name}`)
-
-        // let result = prompt('你多大了',100 )
-        // alert(result)
-
-        // let isBoss = confirm('are you the boss')
-        // alert(isBoss?'yes':'none')
-        // let name = prompt('你叫什么','')
-        // alert(name)
-        // value  =String(true)
-        // console.log(typeof value);
-        // console.log(Number(undefined));
-        // console.log(Number(true));
-        // console.log(Number(false));
-        //     console.log(Number({name:1}));
-        //     // console.log(Number(null));
-        //     // console.log(Number('1111'));
-        // console.log(Boolean(''));
-        // console.log(Boolean(0));
-        // console.log(Boolean(-0));
-        // console.log(Boolean(undefined));
-        // console.log(Boolean(null));
-        // console.log(Boolean(NaN));
-        // console.log(Boolean('0'));
-        // let a = prompt("First number?", 1);
-        // let b = prompt("Second number?", 2);
-
-        // alert(+a + +b); // 12
-        // alert(Number(a) + Number(b)); // 12‘
-        // let result = prompt('', '')
-        // if (result > 0) {
-        //     alert(1)
-        // } else if (result < 0) {
-        //     alert(-1)
-        // } else if (result == 0) {
-        //     alert(0)
-        // let result = prompt('请输入密码', '')
-        // if (result == 'TheMaster') {
-        //     alert('welcome')
-        // }  else if (result === '' || result == null) {
-        //     alert('canceled');
-        // }else {
-        //     alert('worong');
-        // }
-        // let sun = 0
-        // while(true){
-        //     let value = +prompt('输入数字','')
-        //     if(!value) break
-        //     sun += value 
-        // }
-        // alert(sun)
-        // outher: for (let i = 0; i< 3; i++) {
-
-        //     for (let j = 0; j< 3; j++) {
-        //     let input = prompt(`value at coords (${i} ${j}`,'')
-        //     if(!input) break outher
-
-        // }
-        // }
-        // alert('done')
-        // while(true){
-        //     let input = prompt('请输入数字','')
-        //     if(input >100 || input===''|| input==null) break
-        // }
-        // let n = 10;
-        // sushu: 
-        // for (let i = 2; i <=n; i++) {
-        // 	for (let j = 2; j < n; j++) {
-        // 		if (i % j == 0) continue sushu;
-        // 	}
-        // 	alert(i);
-        // }
-        // let a = +prompt('a?', "")
-        // switch (a) {
-        //     case 0:
-        //         alert(0);
-        //         break
-        //     case 1:
-        //         alert(1);
-        //         break
-        //     case 2:
-        //     case 3:
-        //         alert('2,3');
-        //         break
-        // }
-        //     function checkAge(age) {
-        //         return age > 18 || confirm('Do you have your parents permission to access this page?');
+        // let rabbit = new Rabbit("Rab");
+        // console.log(Rabbit.__proto__);
+        // alert( rabbit.hasOwnProperty('name') ); // Error
+        // class CoffeeMachine {
+        //     _waterAmount = 0
+        //     constructor(power) {
+        //         this._power = power
+        //         // alert(`Created a coffee-machine, power: ${power}`);
         //     }
-        //  console.log(checkAge(170))
-        // function min(a, b) {
-        //     return a < b ? a : b
-        // }
-        // alert(min(1,2)
-        // function pow(x,n){
-        //     return  x ** n
-        // }
-        // alert(pow(3,10))
-        // let tree = [[1, [1,2,3]],[2,[1,2,3,4]]]
-        // let myTree = new Map(tree)
-        // console.log(myTree);
-        // console.log(myTree.get(1));
-        // console.log(myTree.get(2));
-        // let ask = (question, yes, no) => {
-        //     if (confirm(question)) yes()
-        //     else no()
-        // }
-        // ask(
-        //     "Do you agree?",
-        //     function () { alert("You agreed."); },
-        //     function () { alert("You canceled the execution."); }
-        // );
-        // alert('the duidie')
-        // [1,3].forEach( alert);// 报错了
-        // function pow(x, n) {
-        //     let result = 1;
-        //     for (let i = 0; i < n; i++) {
-        //         result *= x;
+        //     set waterAmount(value) {
+        //         if (value < 0) {
+        //             value = 0
+        //         }
         //     }
-        //     return result;
+        //     get waterAmount (){
+        //         return this._waterAmount
+        //     }
+        //     get power(){
+        //         return this._power
+        //     }
+        // }
+        // let coffeeMachine = new CoffeeMachine(100)
+        // // coffeeMachine.waterAmount = -1
+        // // console.log(coffeeMachine.waterAmount);
+        // coffeeMachine.power = 25
+        // console.log(coffeeMachine.power);
+        // class CoffeeMachine{
+        //     #waterLimit = 200
+        //     #fixWaterAmount(value){
+        //         if(value<0)return 0
+        //         if(value>this.#waterLimit) return this.#waterLimit
+        //     }
+        //     setWaterAmount(value){
+        //         this.#waterLimit  = this.#fixWaterAmount(value)
+        //     }
+        // }
+        // let coffeeMachine = new CoffeeMachine()
+        // coffeeMachine.#fixWaterAmount()//未捕获的语法错误：必须在封闭类中声明私有字段“#fixWaterAmount”
+        // coffeeMachine.#waterLimit = 100
+        // class PowerArray extends Array{
+        //     isEmpty(){
+        //         return this.length ===0
+        //     }
+        //     static get [Symbol.species](){
+        //         return Array
+        //     }
+
         // }
 
-        // let x = prompt("x?", '')
-        // let n = prompt("n?", '')
-        // if (n <= 0) {
-        //     alert(`Power ${n} is not supported, please enter an integer number greater than zero`);
-        // } else {
-        //     alert(pow(x, n))
-        // }
-        // let fruit = prompt('??','apple')
-        // let bag = {
-        //     [fruit]:5
-        // }
-        // alert(bag.apple)
-
+        // let arr = new PowerArray(1,2,3,4,5,10,60)
+        // alert(arr.isEmpty())
+        // let fiterArr = arr.filter(item=>item>=10)
+        // console.log(fiterArr);
+        // console.log(fiterArr.isEmpty());//可以在filter结果数组上继续使用powerArray的方法
+        // console.log(Date.__proto__);
+        // console.log(Array.__proto__.__proto__.__proto__);
+        //  class Rabbit {}
+        //  let rabbit = new Rabbit()
+        //  console.log(rabbit instanceof Rabbit);//true
+        //  let arr = []
+        //  console.log(arr instanceof Array);
+        // //  console.log(arr instanceof Object);
         // let user = {
-        //     name:'join',
-        //     age:30
+        //     [Symbol.toStringTag]:'user'
         // }
-        // let u2 = {
-        //     name:'bob',
-        //     age:23
-        // }
-        // // let clone = {}
-        // // for (const k in user) {
+        // alert({}.toString.call(user))
+        // console.log(  Object.prototype.toString.call([]));//Array
+        // console.log(  Object.prototype.toString.call({}));//Object
+        // console.log(  Object.prototype.toString.call('213'));//String
+        // console.log(  Object.prototype.toString.call(123));//Number
+        // console.log(  Object.prototype.toString.call(NaN));//Number
+        // console.log(  Object.prototype.toString.call(true));//Boolean
+        // console.log(  Object.prototype.toString.call(null));//Null
+        // console.log(window[Symbol.toStringTag]);//Window
+        // console.log(XMLHttpRequest.prototype[Symbol.toStringTag]);//XMLHttpRequest
+        // console.log({}.toString.call(window));//[object Window]
+        // console.log({}.toString.call(new XMLHttpRequest()));//[object XMLHttpRequest]
+        // console.log(typeof {}.constructor);
+        // let sayHiMixin = {
+        //     sayHi(){
+        //         console.log(`hello ${this.name}`);
+        //     },
+        //     sayBye(){
+        //         console.log(`bye ${this.name}`);
 
-        // //         clone[k] = user[k]
-
-
-        // // }
-        // // let clone = Object.assign({},user,u2)
-        // // let clone = {...user}
-        // // clone.name = 'Pate'
-        // // console.log(clone);
-        // console.log(user.name);
-        // debugger
-        // user=null
-        // console.log(user.name);
-        // function makeUser() {
-        //   return {
-        //     name: "John",
-        //     ref: this
-        //   };
-        // }
-
-        // let user = makeUser();
-        // debugger
-        // alert( user.ref.name ); // 结果是什么？
-        // function Accumulator(startingValue) {
-        //     this.value = startingValue
-        //     this.read = function () {
-        //         let val = +prompt('value?', '')
-        //         this.value += val
         //     }
         // }
-        // let accumulator = new Accumulator(1); // 初始值 1
-
-        // accumulator.read(); // 添加用户输入的 value
-        // // accumulator.read(); // 添加用户输入的 value
-
-        //         // alert(accumulator.val1ue); // 显示这些值的总和
-        //         let id = Symbol.for('123')
-        //         let id2 = Symbol.for('id')
-        //  let user = {
-        //      name:'xc',
-        //      [id]:'1123'
-        //  }
-
-        //  for (const key in user) {
-        // //  console.log( key);
-
-        //  }
-        // console.log( Object.getOwnPropertySymbols(window));
-        // let user = {
-        //     name:'Join',
-        //     money:1000,
-        //     [Symbol.toPrimitive](hint){
-        //         return hint=='string'?`{name:${this.name}}`:this.money
+        // class User{
+        //     constructor(name){
+        //         this.name = name
         //     }
         // }
-        // alert(user);
-        // alert(+user);
-        // // alert(user+500);
-        // function readNumber() {
-        //     let num;
-        //     do {
-        //         num = prompt('请输入数字','')
-        //     } while (!isFinite(num))
-        //     if (num === null || num === '') return null
-        //     return +num
+        // Object.assign(User.prototype,sayHiMixin)
+        // let u  = new User('dued')
+        // u.sayHi()
+        // // console.log(u.__proto__);
+        // let sayMixin = {
+        //     say(phrase) {
+        //         console.log(phrase);
+        //     }
         // }
-        // alert(`Read: ${readNumber()}`);
-    //    function sumInput(){
-    //        let arr = []
-    //        arr.push(+prompt('请给我一个数字',0))
-    //        console.log(arr);
-    //        let str = 0
-    //        for (let i = 0; i < arr.length; i++) {
-    //           str += arr[i]
-    //        }
-    //       alert( str)
-    //    }
-    //    sumInput()
-    function getMaxSubSum(arr) {
-	/*let max = 0
-    for (let i = 0; i < arr.length; i++) {
-        let str = 0
-        for (let j = i; j < arr.length; j++) {
-         str += arr[j] 
-         max = Math.max(max,str)
+        // let sayHiMixin = {
+        //     __proto__: sayMixin,
+        //     sayHi() {
+        //         super.say(`hello ${this.name}`)
+        //     },
+        // let promise = new Promise(function (resolve, reject) {
+        //     resolve('done!')
+        //     // setTimeout(() => {
+        //     //     resolve(123)
+        //     //     // reject(new Error('whoops'))
+        //     // }, 1000);
+        // })
+        // promise.finally(()=>{
+        //     console.log('promise ready');
+        // }).then(
+        //     (value) => {
+        //         console.log(value);
+        //     }, (err) => {
+        //         console.log(err);
+
+        //     }
+        // )
+        // function loadScript(src) {
+        //     return new Promise(function (resolve, reject) {
+        //         let script = document.createElement('script');
+        //         script.src = src;
+        //         script.onload = () => resolve(script);
+        //         script.onerror = () => reject(new Error(`Script load error for ${src}`));
+        //         document.head.append(script);
+        //     })
+
+        // }
+        // loadScript('./one.js')
+        //     .then(src =>  loadScript('./two.js'))
+        //     .then(src => loadScript('./three.js'))
+        //         .then(src => {
+        //             one()
+        //             two()
+        //             three()
+        //         })
+        // function delay(ms){
+        //     return new Promise (function (resolve,reject){
+        //         setTimeout(() => {
+        //             resolve()
+        //         }, ms);
+        //     })
+        // }
+        // delay(3000).then(() => alert('runs after 3 seconds'));
+        //     showCircle(150, 150, 100).then(div => {
+        //   div.classList.add('message-ball');
+        //   div.append("Hello, world!");
+        // });
+        // function showCircle(cx,cy,radius){
+        //     return new Promise(function(resolve,reject){
+        //         resolve()
+        //     })
+        // }
+        // let promise = new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         resolve(1)
+        //     }, 1000);
+        // })
+        // promise.then((res) => {
+        //     alert(res)
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             resolve(res * 2)
+        //         }, 1000);
+        //     })
+        // }).then((res) => {
+        //     alert(res)
+
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             resolve(res * 2)
+        //         }, 1000);
+        //     })
+        // }).then(res=>{
+        //     alert(res)
+        // })
+        // class Thenale {
+        //     constructor(num) {
+        //         this.num = num
+        //     }
+        //     then(resolve, reject) {
+        //         alert(resolve)
+        //         setTimeout(() => {
+        //             resolve(this.num * 2)
+        //         }, 1000);
+        //     }
+        // }
+        // new Promise(resolve=>resolve(1))
+        // .then(result=>{
+        //     return new Thenale(result)
+        // })
+        // .then(res=>alert(res))
+        // function loadJson1(url) {
+
+        //     return new Promise(resolve=>{
+
+
+        //         resolve(url )
+        //     })
+        //         // .then(response => response.json());
+        // }
+        // function loadJson(url) {
+        //   return fetch(url)
+        //     .then(response => response.json());
+        // }
+
+        //         function loadGithubUser(name) {
+        //             return loadJson(`https://api.github.com/users/${name}`);
+        //         }
+
+        //         function showAvatar(githubUser) {
+        //             return new Promise(function (resolve, reject) {
+        //                 let img = document.createElement('img');
+        //                 img.src = githubUser.avatar_url;
+        //                 img.className = "promise-avatar-example";
+        //                 document.body.append(img);
+
+        //                 setTimeout(() => {
+        //                     img.remove();
+        //                     resolve(githubUser);
+        //                 }, 3000);
+        //             });
+        //         }
+
+        //         // 使用它们：
+        //         loadJson1({name:"xiaochuanbbd"})
+        //             .then(user => loadGithubUser(user.name))
+        //             .then(showAvatar)
+        //             .then(githubUser => alert(`Finished showing ${githubUser.name}`));
+        //         // ...
+        // new Promise((resolve,reject)=>{
+        //     throw new  Error('eee')
+        // }).then((res)=>{
+        //     console.log(res);
+        // }).catch(err=>{
+        //     console.log(err);
+        // })
+        // new Promise((resolve,reject)=>{
+        //     throw new  Error('eee')
+        // }).then((res)=>{
+        //     console.log(res);
+        // },(err)=>{
+        //     console.log(err);
+        // })
+        // fetch('https://no-such')
+        // .then(Response=>{
+        //     Response.json()
+        // }).catch(err=>alert(err))
+        // new Promise((resolve,reject)=>{
+        //  resolve('ok')
+        // })
+        // .then(res=>{
+        //     alkd()
+        // })
+        // .catch(err=>{
+        //     alert(err)
+        //     throw new Error('ee')
+        // })
+        // .then(()=>alert('处理完成'))
+
+
+        // window.addEventListener('unhandledrejection', function(event) {
+        //   // 这个事件对象有两个特殊的属性：
+        //   alert(event.promise); // [object Promise] - 生成该全局 error 的 promise
+        //   alert(event.reason); // Error: Whoops! - 未处理的 error 对象
+        // // });
+        // class HttpError extends Error {
+        //     constructor(response) {
+        //         super(`${response.status} for ${response.url}`)
+        //         this.response = response
+        //         this.name = name
+        //     }
+        // }
+
+        // function loadJson(url) {
+        //     return fetch(url)
+        //         .then(res => {
+        //             if (res.status === 200) {
+        //                 return res.json()
+        //             } else {
+        //                 throw new HttpError(res)
+        //             }
+        //         })
+        // }
+        // loadJson('no-such-user.json')
+        // .catch(alert)
+        // // new Promise(function() {
+        //   throw new Error("Whoops!");
+        // }); // 没有用来处理 error 的 catch
+        // function demoGithubUser(){
+        //     let name = prompt('enter a name','iliakan')
+        //     document.body.style.background ='pink'
+        //     return loadJson(`https://api.github.com/users/${name}`)
+        //     .finally(()=>{
+        //         document.body.style.background ='blue'
+        //         return new Promise(resolve => setTimeout(resolve)); // (*)
+        //     })
+        //     .then(user=>{
+        //         alert('full name' + user.name)
+        //         return user
+        //     })
+        //     .catch(err=>{
+        //         if(err instanceof HttpError && res.response.status==404){
+
+        //         alert('No such user,please reenter')
+        //         return demoGithubUser()
+        //         }else{
+        //             throw err
+        //         }
+        //     })
+        // }
+        // demoGithubUser()
+        // new Promise(function(resolve, reject) {
+        //   setTimeout(() => {
+        //     throw new Error("Whoops!");
+        //   }, 1000);
+        // })
+        // .then(()=>{},err=>alert)
+        // .catch(alert);
+        // let p = Promise.all([new Promise(resolve=>setTimeout(() => resolve(1), 3000)),
+        // new Promise(resolve=>setTimeout(() =>resolve(2), 2000)),
+        // new Promise(resolve=>setTimeout(() =>resolve(3), 1000)),
+        // ]).then(res=>{
+        //     console.log(res)
+        // })
+        // console.log(p);
+        // let names = ['iliakan', 'remy12134341', 'jeresig'];
+
+        // let requests = names.map(name => fetch(`https://api.github.com/users/${name}`));
+
+        // Promise.all(requests)
+        //     .then(response => {
+        //         response.forEach((res) => {
+        //             console.log(`${res.url} : ${res.status}`);
+        //         })
+        //         return response
+        //     })
+        //     .then(responses => {
+        //         Promise.all(responses.map(r => r.json())).then(users => {
+        //             users.forEach((user) => {
+        //                 console.log(user.name);
+        //             })
+        //         })
+        //     })
+        //   let p =   Promise.all([
+        //         new Promise((resolve,reject)=>{setTimeout(() => resolve(1), 1000)}),
+        //         new Promise((resolve,reject)=>{setTimeout(() => reject( new Error('whoops')), 2000)}),
+        //         new Promise((resolve,reject)=>{setTimeout(() => resolve(1), 3000) })
+        //     ])
+        //     p.then(alert)
+        //     .catch(alert)
+        // let p =   Promise.all([
+        //         new Promise((resolve,reject)=>{setTimeout(() => resolve(1), 1000)}),
+        //         2,
+        //         {name:'xwl'}
+        //     ])
+        //     p.then(console.log) //[1,2,{name:'xwl'}]
+        // .catch(alert)
+        // let urls = [
+        //     'https://api.github.com/users/iliakan',
+        //     'https://api.github.com/users/remy',
+        //     'https://no-such-url'
+        // ];
+
+
+
+        // const rejectHandler = reson => ({
+        //     status: 'rejected',
+        //     reson
+        // })
+        // const resolveHandler = value => ({
+        //     status: 'fulfilled',
+        //     value
+        // })
+        // Promise.myAllSettled = function (promises) {
+        //     const convertedPromises = promises.map(p => {
+        //        return Promise.resolve(p).then((value)=>{
+        //            return {status:'fulfilled',value}
+        //         }, (reson)=>{
+        //             return {status:'rejected',reson}
+        //         })
+        //     });
+        //     return Promise.all(convertedPromises);
+        // };
+
+
+        // Promise.myAllSettled(
+        //     urls.map(url => fetch(url))
+        // ).then(results => {
+        //     console.log(results);
+        //     results.forEach((result, num) => {
+        //         if (result.status === 'fulfilled') {
+        //             console.log(`${urls[num]}: ${result.value.status}`);
+        //         } else {
+        //             console.log(`${urls[num]}: ${result.reason}`);
+
+        //         }
+        //     });
+        // })
+        // let race = Promise.any([
+        //     new Promise((resolve,reject)=>setTimeout(() => reject(new Error('whoops')), 1000)),
+        //     new Promise((resolve,reject)=>setTimeout(() => reject(new Error('whoops')), 800)),
+        //     new Promise((resolve,reject)=>setTimeout(() => reject(3), 3000)),
+        // ]).catch(err=>{
+        //     console.log(err.constructor.name);
+        //     console.log(err.errors[0]);
+        //     console.log(err.errors[1]);
+        //     console.log(err.errors[2]);
+        // })
+        // console.log(race);
+        function loadScript(src, callback) {
+            let script = document.createElement('script');
+            script.src = src;
+
+            script.onload = () => callback(null, script);
+            script.onerror = () => callback(new Error(`Script load error for ${src}`));
+
+            document.head.append(script);
         }
-        
-    }
-    return max
-    */
-   debugger
-	let max = 0;
-	let partiaSum = 0;
-	for (const item of arr) {
-		partiaSum += item;
-		max = Math.max(max, partiaSum);
-		if (partiaSum < 0) partiaSum = 0;
-	}
-    return max
-}
-let arr = [ -1, 2, 3, -9 ];
-console.log(getMaxSubSum(arr));
+        //新的函数是对原始的loadscript函数的包装，新函数调用它，并提供了自己的回调来将其转换成promise resolve/reject
+        // let loadScriptPromise = function (src){
+        //     return  new Promise((resolve,reject)=>{
+        //         loadScript(src,(err,script)=>{
+        //             if(err)reject(err)
+        //             resolve(script)
+        //         })
+        //     })
+        // }
+        //  loadScriptPromise('./test.js').then(val=>{
+        //      console.log(val);
+        //  },err=>{
+        //      console.log(err);
+        //  })
+        // let loadScriptPromise = promisefy(loadScript)
+        // // console.log(loadScriptPromise);
+        // loadScriptPromise('./test.js').then(value=>{
+        //     console.log(value);
+        // },err=>{
+        //     console.log(err);
+        // })
+        // //传入一个函数使其promisefy
+        //  function promisefy(f){
+        //      return function (...args){
+        //          return new Promise ((resolve,reject)=>{
+        //              function callback(err,result){
+        //                  if(err){
+        //                      reject(err)
+        //                  }else{
+        //                  }
+        //              }
 
+        //          args.push(callback)
+        //          f.call(this,...args)
+        //          })
+        //      }
+        //  }
+        // let promise = Promise.resolve(123)
+        // promise.then(val=>{
+        //     console.log(val);
+        //     // return val
+        // }).then(val=>{
+        //     console.log(val);
+
+        // })
+        // // setTimeout(()=>{
+        // //     promise.catch(err=>alert('caught'))
+        // // })
+        // window.addEventListener('unhandledrejection',event=>alert(event.reason))
+        //    async function f(){
+        //        return  Promise.resolve(1)
+        //    }
+        //    f().then(alert)
+        //   function f(){
+        //     let promise = new Promise((resolve,reject)=>{
+        //         setTimeout(() => {
+        //             resolve('done')
+        //         }, 2000);
+        //     })
+        //     let res = await promise
+        //     alert(res)
+        // }
+        // f()
+        // class Thenale{
+        //     constructor(num){
+        //         this.num = num
+        //     }
+        //     then(resolve,reject){
+        //         alert(resolve)
+        //         setTimeout(() => {
+        //             resolve(this.num*2)
+        //         }, 1000);
+        //     }
+        // }
+        // async function f(){
+        //     let result  =  await new Thenale(2)
+        //     alert(result)
+        // }
+        // f()
+        // class Waiter {
+        //     async wait(){
+        //         return 1
+        //     }
+        // }
+        // new Waiter()
+        // .wait()
+        // // .then(res=>alert(res))
+        // async function f() {
+
+        //         await Promise.reject(new Error('whoops'))
+
+
+        // }
+        // f().catch(err=>alert(err))
+        //   async function f(){
+        //     try {
+        //         let results = await Promise.all([
+        //         fetch('./test.js'),
+        //     ])
+        //     } catch (error) {
+        //         console.log(error);
+        //     }
+        //     console.log(results);
+        //    }
+        //    f()
+        // async function loadJson(url) {
+        //     let response = await fetch(url)
+        //     if (response.status === 200) {
+        //         let json = await response.json();
+        //         return json
+        //     } else {
+        //         throw new Error(response.status);
+        //     }
+        //     // .then(response => {
+        //     //     if (response.status == 200) {
+        //     //         return response.json();
+        //     //     } else {
+        //     //         throw new Error(response.status);
+        //     //     }
+        //     // });
+        // }
+
+        // loadJson('https://javascript.info/no-such-user.json')
+        // //     .catch(alert); // Error: 404
+        // class HttpError extends Error {
+        //     constructor(response) {
+        //         super(`${response.status} for ${response.url}`);
+        //         this.name = 'HttpError';
+        //         this.response = response;
+        //     }
+        // }
+
+        // async function loadJson(url) {
+        //     let response = await fetch(url)
+        //     if (response.status === 200) {
+        //         let json = await response.json();
+        //         return json
+        //     } else {
+        //         throw new HttpError(response);
+        //     }
+        // .then(response => {
+        //     if (response.status == 200) {
+        //         return response.json();
+        //     } else {
+        //         throw new HttpError(response);
+        //     }
+        // });
+        // }
+
+        // 询问用户名，直到 github 返回一个合法的用户
+        // async function demoGithubUser() {
+        //     let user
+        //     while (true) {
+        //         let name = prompt("Enter a name?", "iliakan");
+        //         user = await loadJson(`https://api.github.com/users/${name}`)
+        //         try {
+        //             alert(`Full name: ${user.name}.`);
+        //             // return user;
+        //             break
+        //         } catch (err) {
+        //             if (err instanceof HttpError && err.response.status == 404) {
+        //                 alert("No such user, please reenter.");
+        //                 return demoGithubUser();
+        //             } else {
+        //                 throw err;
+        //             }
+        //         }
+        //     }
+        // .then(user => {
+        //     alert(`Full name: ${user.name}.`);
+        //     return user;
+        // })
+        // .catch(err => {
+        //     if (err instanceof HttpError && err.response.status == 404) {
+        //         alert("No such user, please reenter.");
+        //         return demoGithubUser();
+        //     } else {
+        //         throw err;
+        //     }
+        // });
+        // }
+
+        // demoGi/thubUser();
+        async function wait() {
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            return 10;
+        }
+
+        function f() {
+           let res = wait()
+        //    setTimeout(() => {
+             res.then(val=>console.log(val))
+        //    }, 0);
+            // ……这里你应该怎么写？
+            // 我们需要调用 async wait() 并等待以拿到结果 10
+            // 记住，我们不能使用 "await"
+        }
+        f()
     </script>
+
 </body>
 
 </html>

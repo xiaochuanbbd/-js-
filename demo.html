@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <label for="input">123</label>
+  <input id="input" type="text">
+</body>
+<script>
+  /**
+1.label标签
+abel 元素不会向用户呈现任何特殊效果。不过，
+它为鼠标用户改进了可用性。
+如果您在 label 元素内点击文本，就会触发此控件。
+就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上。
+2.b标签和strong标签
+都是表示加粗标签
+strong有语义
+b没有
+3.防抖节流原理
+防抖： 当持续触发一个事件时，在n秒内时间没有再次触发，
+此时才会执行回调，如果n秒内事件出发了，就重新计时
+辅助理解：坐电梯例子，有人进来了不会关门，间隔一段时间没有人进入才会关闭
+节流：
+时间戳的方式实现：
+当触发事件时，获取当前时间戳，任何减去之前的时间戳（第一次设置为 0），如果差值大于设置的等待时间就执行函数
+然后更新上上一次执行时间为当前的时间戳，如果小于设置的等待时间就不执行
+定时器方式：
+在事件触发时设置一个定时器，当再次触发时间时，如果定时器存在就不执行，等过了设置的等待时间定时器执行
+需要在定时器执行时清空定时器，这样可以设置下一个定时器
+
+4.get和post请求的区别
+1. 安全性 
+2.参数位置
+3. 功能
+4. 大小限制，get有长度限制，post没有
+5.浏览器会记录get历史，不会记录post
+6. 产生的数据包
+get产生1个，header和data一起发送
+post 2个， 先发送header 服务器响应100 等待执行
+在发送data，服务器响应200
+
+5.options请求 预检请求 从而获知服务端是否允许该跨域请求
+6.es5 es6继承
+7。继承
+8.跨域
+9.重绘和回流
+重绘： dom树没有元素增加或删除，只是样式的改变
+回流，dom树的元素被再增加或者删除，导致浏览器需要重新去渲染整个dom树，
+重排：当渲染树中的一部分因为元素的规模尺寸。布局，隐藏的改变而需要重新构建，
+这就成为构建
+重排一定会引起重绘，重绘不一定会引起重排
+10.移动端适配方式
+
+11. webscket？？
+todo
+
+12.路由守卫参数
+to:目标路由，
+from：当前路由
+next（false ）  不让走
+next（ true） 不让走
+next('login') 走哪
+next({path:'/detai'，params}) 带参数
+执行中遇见next(false)如果浏览器url地址改变了，可能是用户手动或者浏览器后退按钮，那么
+URL地址会重置到from路由对应的地址
+
+13.用过什么vue指令
+14.场景题目数据改变了页面没更新怎么办？
+* vue无法检测实例被创建时不存在于data中的property
+  需要将其添加在data中
+* vue无法检测property的添加或移除
+ 解决： $set $delete
+* vue不能检测通过数组索引直接修改样一个数组项
+ 解决： $set
+* vue不能检测直接修改数组长度的变化 
+  解决：vm.items.splice(newlength)
+* 在异步更新操作之前执行dom数据不会变化
+  解决：next Tick
+* 路由参数变化，页面不更新（数据不更新）
+  解决：watch监视 $route
+
+15 .组件传值的方式
+16.prop子组件内如何修改
+17.key的作用
+高效的更新虚拟dom,vue在使用相同标签名元素的过度切换时也会用到key属性，目的也是vue可以区分它们
+
+18.封装过什么组件
+1.全局的公共组件
+2.二次封装ui组件，比如 el-table，el-form
+3.二次封装项目中用到的功能库，比如抽取库中的常用的方法吗，统一的修改后的样式，和HTML结构，方便使用。
+4.函数式组件，没有管理任何状态，没有监听任何传递给它的状态，也没有生命周期，只是接受一些prop的函数，这个时候我们可以使用functional组件了
+组件没有实例this， 只有context参数
+所有以.vue结束的文件都是vue单文件组件，vue本身就是具有组件化思维的东西
+
+19.自定义过指令吗？？
+自定义过，
+全局注册一个指令：例如focus
+Vue。diractive('xxx指令名称',{
+  bind:function(el),每当指令绑定到元素上的时候，会立即执行bind函数
+  inserted:function(el),表示元素被插入到dom中的时候会执行inserted函数
+  update:function(el)当VNode更新的时候，会执行update，可能会触发多次
+  componentUpdated:function(el) 指令所在组件的虚拟节点VNode以及子虚拟节点更新之前的
+  unbind:function(el) 指令与元素解绑时调用 ，只调用一次
+})
+
+20.刷新触底怎么加载数据？？
+21.==和 ===的区别
+==
+* 如果是null和undefined 是相等的
+* 如果一个是字符串，一个是数值，把字符串转换为数值在比较
+
+
+22. forin 和object.keys的区别
+forin 会遍历原型上的属性和方法，  
+Object,keys 不会遍历原型上的属性和方法
+23.es5.es6自定义参数的方式
+24.一只兔子三个月生1-2只兔子
+
+ */
+</script>
+</html>
