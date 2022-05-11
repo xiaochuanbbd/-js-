@@ -1,43 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <SCript>
-/*  function * generatorSequence(){
+        /*  function * generatorSequence(){
      yield 1;
      yield 2;
      yield  3;
  }
  let generator = generatorSequence() */
-//  alert(generator) //[object Generator]
-// let one = generator.next()
-// let two = generator.next()
-// let three = generator.next()
-// let fore = generator.next()
-// alert(one.value)
-// alert(two.value)
-// alert(three.value)
-// alert(three.done)
-// alert(fore.done)
-// for (const iterator of generator) {
-//     alert(iterator)
-// }
-// let sequence = [0,...generatorSequence()]‘
-let range = {
-    from:1,
-    to:5,
-    *[Symbol.iterator](){
-        for (let value=this.from;  value <= this.to; value++) {
-           yield value;
+        //  alert(generator) //[object Generator]
+        // let one = generator.next()
+        // let two = generator.next()
+        // let three = generator.next()
+        // let fore = generator.next()
+        // alert(one.value)
+        // alert(two.value)
+        // alert(three.value)
+        // alert(three.done)
+        // alert(fore.done)
+        // for (const iterator of generator) {
+        //     alert(iterator)
+        // }
+        // let sequence = [0,...generatorSequence()]‘
+        // let range = {
+        //     from:1,
+        //     to:5,
+        //     *[Symbol.iterator](){
+        //         for (let value=this.from;  value <= this.to; value++) {
+        //            yield value;
+        //         }
+        //     }
+        // }
+        // alert([...range])
+        // function* generateSequence(start, end) {
+        //     for (let i = start; i <= end; i++)  yield i
+            
+        // }
+
+        // function* generatoPasswordCodes() {
+
+        //     yield* generateSequence(48, 57)
+        //     yield* generateSequence(65, 90)
+        //     yield* generateSequence(97, 122)
+
+        // }
+        // let str = "";
+        // for (let code of generatoPasswordCodes()) {
+        //     str += String.fromCharCode(code)
+        // }
+        // alert(str)
+        // function* gen(){
+        //    try {
+        //     let result = yield "2 + 2 = ?"
+        //     alert("The execution does not reach here, because the exception is thrown above")
+        //    } catch (error) {
+        //        alert(error)
+        //    }
+             
+        // }
+        // let generator = gen()
+        // let question = generator.next().value
+        // generator.throw(new Error("The answer is not found in my database"))
+    //     function* gen(){
+    //         yield 1;
+    //         yield 2;
+    //         yield 3;
+    //     }
+    //     const g = gen();
+    //   let r1 =   g.next()
+    //   let r2=  g.return('foo')
+    //    let r3=  g.next()
+    //    let r4=  g.return('f002')
+    //    console.log(r1,r2,r3,r3);
+    function* pseudoRandom(seed){
+        let value = seed
+        while(true){
+            value = value * 16807 % 2147483647
+            yield value
         }
     }
-}
-alert([...range])
+    let generator = pseudoRandom(1);
+
+alert(generator.next().value); // 16807
+alert(generator.next().value); // 282475249
+alert(generator.next().value); // 1622650073
     </SCript>
 </body>
+
 </html>
