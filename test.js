@@ -534,7 +534,6 @@ let obj = {
 	a:1,
 	b:1
 
-<<<<<<< HEAD
 //   }, 0)
 //   return num/users.length
 // }
@@ -1208,19 +1207,15 @@ let obj = {
 // function newFn(){
 //   console.log('我是newfn');
 // }
-let obj = {
-  name:'xl',
-  age:12
-}
-let arr = [1,2,3,4]
-for (const key in obj) {
-console.log(key);
-}
+// let obj = {
+//   name:'xl',
+//   age:12
+// }
+// let arr = [1,2,3,4]
+// for (const key in obj) {
+// console.log(key);
+// }
  
-for (const iterator of arr) {
-  console.log(iterator);
-}
-=======
-}
-console.log(obj.toJSON());
->>>>>>> 62f52f9b5e39b4789b5445f821c3f6631934097b
+// for (const iterator of arr) {
+//   console.log(iterator);
+// }
