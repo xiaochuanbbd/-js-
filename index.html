@@ -1,126 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
 
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  
 </head>
 
 <body>
-
-    <script>
-//         let target = {}
-//       let proxy = new Proxy(target,{})
-//  proxy.test = 5
-//  alert(target.test)
-//  alert(proxy.test)
-//  for (const key in proxy) {
-//     alert(key)
-//  }
-// let dictionary = {
-//   'Hello': 'Hola',
-//   'Bye': 'Adiós'
-// };
-// let arr = []
-
-// numbers = new Proxy(arr,{
-//     get(target,prop){
-//         if(prop in target){
-//             return target[prop]
-//         }else{
-//             return prop
-//         }
-//     },
-//     set(target,prop,value){
-//         if(typeof value ==='number'){
-//             target[prop] = value
-//             return true
-//         }else{
-//             return false
-//         }
-
-//     }
-// })
-// numbers.push(1)
-// numbers.push(2)
-// alert( numbers[0] ); // Hola
-// alert( numbers[2] ); // Hola
-// console.log( numbers  ); // Hola
-// let user = {
-// }
-// user = new Proxy({},{
-//     ownKeys(target){
-//         return  ['a','b','c']
-//     },
-//     getOwnPropertyDescriptor(target,prop){
-//         return{
-//             enumerable:true,
-//             configurable:true
-//         }
-//     }
-// })
-// for (const key in user) {
-//      alert(key) //a,b,c
-// }
-// alert(Object.keys(user))
-// function delay(f,ms){
-//     return new Proxy(f,{
-//         apply(target,thisArg,args){
-//             setTimeout(() => {
-//                 return target.apply(thisArg,args)
-//             }, ms);
-//         }
-//     })
-// }
-// function sayHi(user){
-//     alert(`hello,${user}!`)
-// }
-// sayhi= delay(sayHi,2000)
-// alert(sayhi.length)
-// sayhi('join')
-// let user = {
-//     name:'join'
-// }
-// user = new Proxy(user,{
-//     get(target,prop,receiver){
-//         alert(`GET${prop}`)
-//         return Reflect.get(target,prop,receiver)
-//     },
-//     set(target,prop,val,receiver){
-//         alert(`set${prop}=${val}`)
-//         return Reflect.set(target,prop,val,receiver)
-//     }
-// })
-// let name = user.name
-// user.name  = 'Pete'
-// let user = {
-//     _name:'Guest',
-//     get name(){
-//         return this._name
-//     }
-// }
-// let userProxy = new Proxy(user,{
-//     get(target,prop,receiver){
-//         return Reflect.get(target,prop,receiver)
-//     }
-// })
-// let admin = {
-//     __proto__:userProxy,
-//     _name:'admin'
-// }
-// alert(admin.name)
-let map = new Map()
-let proxy = new Proxy(map,{
-    get(target,prop,receiver){
-        let value = Reflect.get(...arguments);
-    return typeof value == 'function' ? value.bind(target) : value;
-    }
-})
-proxy.set('test',1)
-alert(proxy.get('test'))
-    </script>
+  <div class="div">13</div>
+    </body>
+  <script>
+    let div = document.querySelector('div')
+ console.log(div.data);
+  </script>
 </body>
-
 </html>
