@@ -1195,6 +1195,7 @@ let obj = {
 //   hide(){
 //     console.log('hide');
 //   }
+
 // }
 // let rabbits =[new Rabbit('白兔子',5),new Rabbit('黑兔子',10)]
 // // rabbits.sort(Rabbit.compare)

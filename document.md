@@ -106,7 +106,7 @@ PS:直接使用id。如果有js赋值的情况下，优先js(一般不用这个)
   * HTMLAnchorElement 
 **节点的全部属性和方法都是继承的结果**
 DOM节点是常规的JavaScript对象，他们使用基于原型的类进行继承
-HTMLBodyElement==>HTMLElement ==>Element ==>Node==> EventTarget ==>Object
+body==>HTMLBodyElement==>HTMLElement ==>Element ==>Node==> EventTarget ==>Object
 
 ### nodeType属性
 * ele.nodeType==1 元素节点
@@ -137,3 +137,88 @@ HTMLBodyElement==>HTMLElement ==>Element ==>Node==> EventTarget ==>Object
 
 ### nodevalue、data
 获取文本节点的内容
+* textContent :读取或者纯文本,提供了对元素内的文本访问权限，仅文本， 去掉所有< tag >
+  * 和innerHTML对比:  使用in呢人HTML我们将其作为HTML插入， 带有所有HTML标签
+  * textContent:将其作为文本插入， 所有符号均按字面意义处理。（比较安全）
+
+### hidden属性
+指定DOM元素是否可见
+* 与display：none；做的事情相同
+
+### 其他：
+* value < input>
+* href < a>
+* id
+
+### 总结
+* 每一个DOM节点都是一个特定的类，这些类形成层次结构，完整的属性和方法集是继承的结果
+* nodeType  --- 查看节点的类型
+* nodeName/tagName 大写，只读
+  * tagName 查看元素名 
+  * nodeName查看元素名，以及非元素节点名 
+* innerHTML  查看元素的HTML内容（解析标签） ，可读可写
+* outhrHTML 元素完整的HTML（包括标签），可写的操作不会修改元素本身，可读可写
+* nodeValue/data  非元素节点的文本内容，一般使用data，可以被修改
+* textContent 元素节点内的文本，去掉< tag >后的，可读可写
+* hidden 隐藏属性， 与display：none相同
+* document 类： document==> HTMLDocument==>Document==>Node==>EventTarget==>Object
+* body类：body==>HTMLBodyElement==>HTMLElement ==>Element ==>Node==> EventTarget ==>Object
+
+
+## 特性和属性 （Attributes特性 和 properties属性）
+### DOM属性
+* DOM节点是常规JavaScript对象，可以更改
+  * 可以添加属性
+  * 可以添加方法（this指向也是点语法前面的）
+* 可修改内建属性的原型，例如修改 Element.prototype 为所有元素添加一个新的方法
+```javascript
+Element.prototype.sayHI= function(){
+  alert('hello')
+}
+document.body.sayHI()
+
+```
+* 有很多值
+* 大小写敏感
+
+## HTML特性
+* 标准特性可以获取
+* 非标准特性需要通过方法 
+  * elem.hasAttribute(name) --- 检查特性是否存在
+  * elem.getAttribute(name) --- 获取这个特性值
+  * elem.setAttribute(name,value) ---设置特性值
+  * elem.removeAttribute(name) --- 删除特性
+  * elem.attributes 获取所有特性
+* HTML特征有以下几点特征：
+  * 大小写不敏感，在html中大写都是小写
+  * 值是字符串
+
+### 属性--特性同步
+* 当属性或者特性被修改 对于的属性会自动更新，几个特例除外
+  * value：改变HTML特性值 value 会更新DOM属性，更改DOM属性不会更改HTML特性。场景： 当用户行为可能会导致value的变更，但这些操作之后想恢复原始值， 该值就在HTML特性。
+
+### DOM属性是多类型的
+* 普遍是字符串
+* 也有对象 如style
+* input.checked:布尔值
+* href，DOM属性是一个完整的URL，getAttribute（）是href中的值
+
+### 非标准的特性，dataset
+* 支持自己书写HTML特性
+* 所有data-开头的特性均被保留供程序员使用，他们可在dataset属性中使用
+  * data-vue 通过： elem.dataset.vue读取
+  * data-vue-react 通过：elem.dataset.vueReact 驼峰命名法
+  * 可读取，可修改
+
+
+## 修改文档 Document
+### 创建一个元素
+* document.createElement('div') 使用给定的标签，创建一个元素节点
+* ducument.createTextNode('here i am') 使用给定的文本创建一个文本节点
+
+### 插入方法
+* node.append(...node or string) 向node的**末尾**插入节点或者字符串
+* node.prepend(...node or string) 向node的**开头**插入节点或者字符串
+* node.before(...node or string) 向node的**前面**插入节点或者字符串
+* node.after(...node or string) 向node的**后面**插入节点或者字符串
+* node.replaceWith(...node or string) 将node**替换**为给定的节点或者字符串
