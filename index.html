@@ -1,51 +1,31 @@
 <!DOCTYPE HTML>
 <html>
 
-<head>
-
-</head>
-<style>.alert {
-  padding: 15px;
-  border: 1px solid #d6e9c6;
-  border-radius: 4px;
-  color: #3c763d;
-  background-color: #dff0d8;
-}</style>
 <body>
- <div id="div">133</div>
-<!-- <div class="alert">
-  <strong>Hi there!</strong> You've read an important message.
-</div> -->
-</body>
-<script>
- // 为单个链接设置样式
-  // let div = document.createElement('div')
-  //  div.className = 'alert'
-  //  div.innerHTML = "<strong>Hi there!</strong> You've read an important message.";
-  // document.body.replaceWith(div)
-  // 同： script start ，async1 start，async2，promise1 ，script end  微：async1 end，promise2 宏：setTimeout
-  async function async1() {
-  console.log('async1 start');
-  await async2();
-  console.log('async1 end');
-}
-async function async2() {
-  console.log('async2');
-}
 
-console.log('script start');
-setTimeout(function() {
-    console.log('setTimeout');
-}, 0);  
-async1();
-new Promise(function(resolve) {
-    console.log('promise1');
-    resolve();
-  }).then(function() {
-    console.log('promise2');
-});
-console.log('script end');
-</script>
+  <div id="cel"></div>
+
+  <script>
+    let cel = document.getElementById('cel')
+    createCalendar(cel, 2012, 9)
+    function createCalendar(cel, year, month) {
+      let mon = month - 1;
+      let d = new Date(year, month)
+      let table = '<table><tr><th>MO</th><th>TU</th><th>WE</th><th>TH</th><th>FR</th><th>SA</th><th>SU</th></tr><tr>';
+        if (getDay(d) != 0) {
+        for (let i = getDay(d); i < 7; i++) {
+          table += '<td></td>';
+        }
+      }
+      cel.innerHTML = table
+    }
+    function getDay(date) {
+      let day = data.getDay()
+      if (day == 0) day == 7
+      return day - 1
+    }
+  </script>
+
 </body>
 
 </html>

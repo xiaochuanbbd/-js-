@@ -222,3 +222,61 @@ document.body.sayHI()
 * node.before(...node or string) 向node的**前面**插入节点或者字符串
 * node.after(...node or string) 向node的**后面**插入节点或者字符串
 * node.replaceWith(...node or string) 将node**替换**为给定的节点或者字符串
+* 插入的文字都作为文本插入，不会作为html代码。因此会省略< >
+
+#### insertAdjacentHTML/Text/Element
+1. **elem.insertAdjacentHTML(where,html)** 使用最多  插入的是 html 
+ * beforebegin 将html插入到elem前
+ * afterbegin 将html插入到elem开头
+ * beforeend 将html插入到element 开头
+ * afterend 将html插入到elem后
+2. elem.insertAdjacentText(where,text) 插入的是 text文本
+3. elem.insertAdjacentElement(where, elem) 插入的是 一个元素
+
+### 节点移除
+* node.remove()
+**元素交换，一个元素移动到另外一个地方，无需从原来的位置删掉， 所有的插入方法都会自动从旧位置删除该元素**
+
+### 节点克隆
+elem.cloneNode(true/false)
+* true: 深克隆，具有所有特性和子元素
+* false 不包括子元素
+### DocumentFragment
+特殊的DOM 节点，原来传递节点列表的包装器（wrapper）
+可以向其附加其他节点，但当我么将其插入某个位置时候，则会插入其内容
+### 久远的其他insert/remove方法
+* parentElem.appendChild(node) 在parentElem最后添加一个node为子元素
+* parentElem.insertBefore（node,nextSibing）在parentElem的nextSibing前插入node
+* parendElem.replaceChild(node,oldChild) 将parendElem的后台中的oldChild替换为node
+* parendElem.removeChild(node) 移除node
+ 这些方法都会返回插入/删除的节点
+
+ ### document.write 
+* 将html写入页面
+* 只在页面加载时工作
+* 不涉及dom的修改
+
+
+###  总结
+* 创建节点的方法
+  * document.createElement(tag) 用给定的标签创建一个元素节点
+  * document.creareTextNode(value) 创建一个文本节点 （很少使用）
+  * elem.cloneNode(deep) 克隆节点， deep =true 深克隆
+* 插入和移除节点的方法
+  * node.append(nodes or string) 在node末尾插入
+  * node.prepend(node or string) 在node开头插入
+  * node.before(node or string) 在node之前插入
+  * node.after(node or string) 在node之后插入
+  * node.replaceWirh(node or string) 替换node
+  * node.remove() 移除node
+* 旧时的插入和移除节点
+  * parent.appendChild(node)
+  * parent.insertBefore(node,nextSibing)
+  * parent.removeChild(node)
+  * parent.replaceChild(newElem,node)
+* elem.insertAdjacentHTML(where,html)
+  * beforebegin 将html插入到elem前面
+  * afterbegin 将html插入到elem后面
+  * beforeend 将html插入到elem开头
+  * afterend 将html插入到elem末尾
+* 

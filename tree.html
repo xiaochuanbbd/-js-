@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+</head>
+<style>
+  .alert {
+    padding: 15px;
+    border: 1px solid #d6e9c6;
+    border-radius: 4px;
+    color: #3c763d;
+    background-color: #dff0d8;
+  }
+</style>
+
+<body>
+  <div id="container"></div>
+</body>
+<script>
+  let data = {
+    "Fish": {
+      "trout": {},
+      "salmon": {}
+    },
+    "Tree": {
+      "Huge": {
+        "sequoia": {},
+        "oak": {}
+      },
+      "Flowering": {
+        "apple tree": {},
+        "magnolia": {}
+      }
+    }
+  };
+  //为树创建 HTML，然后将它们赋值给 container.innerHTML。'
+  let container = document.getElementById('container');
+  createTree(container, data); // 将树创建在 container 中
+  // function createTree(container, data) {
+  //   container.innerHTML = createTreeText(data)
+
+  // }
+  // function createTreeText(data) {
+  //   let li = '';
+  //   let ul;
+  //   for (const key in data) {
+  //     li += '<li>' + key + createTreeText(data[key] )+ '</li>'
+  //   }
+  //   if (li) {
+  //     ul = '<ul>' + li + "</ul>"
+  //   }
+  //   return ul || ''
+  // }
+  // 创建节点树，并使用 DOM 方法将它们附加（append）上去。
+  function createTree(container, data) {
+    let ul = createTreeText(data)
+    container.append(ul)
+  }
+  function createTreeText(data) {
+    let ul = document.createElement('ul')
+    for (const key in data) {
+      let li = document.createElement('li')
+      li.innerHTML = key   
+      let childrenUl = createTreeText(data[key])
+      if (childrenUl) {
+        li.append(childrenUl)
+      }
+      ul.append(li)
+    }
+    return ul
+  }
+</script>
+</body>
+
+</html>
