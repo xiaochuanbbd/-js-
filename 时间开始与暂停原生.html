@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<style>
+  .h{
+    color: red;
+  }
+  .m{
+    color: green;
+  }
+  .s{
+    color: blue;
+  }
+</style>
+<body>
+
+  <div id="time">
+    <span class="h">YY</span>-
+    <span class="m">MM</span>-
+    <span class="s">DD</span>
+    <span class="h">hh</span>:
+    <span class="m">mm</span>:
+    <span class="s">ss</span>
+  </div>
+  <button>开始</button>
+  <button>停止</button>
+
+  <script>
+  function update(){
+    let time = document.getElementById('time')
+    let date = new Date()
+
+    let year = date.getFullYear()
+     
+    time.children[0].innerHTML = year
+
+    let months = date.getMonth()
+    time.children[1].innerHTML = months+1
+
+    let days = date.getDate()
+    time.children[2].innerHTML = days
+
+
+    let hours = date.getHours()
+    if(hours<10) hours = "0"+ hours
+    time.children[3].innerHTML = hours
+
+    let minutes = date.getMinutes()
+    if(minutes<10) minutes = "0"+ minutes
+    time.children[4].innerHTML = minutes
+
+    let seconds = date.getSeconds()
+    if(seconds<10) seconds = "0"+ seconds
+    time.children[5].innerHTML = seconds
+  }
+  let timerId
+ function start(){
+  if(!timerId) {
+    timerId = setInterval(update,1000)
+    update()
+  }
+ }
+ function clockStop(){
+   clearInterval(timerId)
+   timerId = null
+ }
+ 
+ 
+ document.getElementsByTagName('button')[0].addEventListener('click',start)
+ document.getElementsByTagName('button')[1].addEventListener('click',clockStop)
+  </script>
+
+</body>
+
+</html>

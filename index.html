@@ -1,60 +1,34 @@
 <!DOCTYPE HTML>
 <html>
 
+<head>
+  <style>
+    #field {
+      width: 200px;
+      border: 10px groove black;
+      background-color: #00FF00;
+      position: relative;
+    }
+
+    #ball {
+      position: absolute;
+    }
+  </style>
+</head>
+
 <body>
 
-  <div id="calendar"></div>
 
+  <div id="field">
+    <img src="https://en.js.cx/clipart/ball.svg" width="40" height="40" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+   . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+  </div>
 
-  <script>
-    function createCalendar(elem, year, month) {
-
-      let mon = month - 1; // months in JS are 0..11, not 1..12
-      let d = new Date(year, mon);
-
-      let table = '<table><tr><th>MO</th><th>TU</th><th>WE</th><th>TH</th><th>FR</th><th>SA</th><th>SU</th></tr><tr>';
-
-      // spaces for the first row
-      // from Monday till the first day of the month，第一周的空td
-      // * * * 1  2  3  4
-      for (let i = 0; i < getDay(d); i++) {
-        table += '<td></td>';
-      }
-
-      // <td> with actual dates
-      while (d.getMonth() == mon) {
-        table += '<td>' + d.getDate() + '</td>';//设置每一天的日历
-
-        if (getDay(d) % 7 == 6) { // 星期天，一周的最后一天 - 换行sunday, last day of week - newline
-          table += '</tr><tr>';
-        }
-
-        d.setDate(d.getDate() + 1);//循环递加条件
-      }
-
-      //最后一行的空行td add spaces after last days of month for the last row
-      // 29 30 31 * * * *
-      if (getDay(d) != 0) {//
-        for (let i = getDay(d); i < 7; i++) {
-          table += '<td></td>';
-        }
-      }
-
-      // close the table
-      table += '</tr></table>';
-
-      elem.innerHTML = table;
-    }
-
-    function getDay(date) { // get day number from 0 (monday) to 6 (sunday)
-      let day = date.getDay();
-      if (day == 0) day = 7; // make Sunday (0) the last day
-      return day - 1;
-    }
-
-    createCalendar(calendar, 2022, 5);
-  </script>
 
 </body>
-
+<script>
+  // ball.style.left =(field.clintWidth/2 - ball.style.width/2)+'px'
+  ball.style.left = Math.round(field.clientWidth/2) -Math.round(ball.offsetWidth/2) +'px'
+  ball.style.top = Math.round(field.clientHeight/2)-Math.round(ball.offsetHeight/2) +'px' 
+</script>
 </html>

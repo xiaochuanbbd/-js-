@@ -279,4 +279,81 @@ elem.cloneNode(true/false)
   * afterbegin 将html插入到elem后面
   * beforeend 将html插入到elem开头
   * afterend 将html插入到elem末尾
-* 
+
+## 样式和类
+### className和 classList
+* elem.className 对应着 html中的class
+  * 可读可写
+* elem.classList 对单个类进行操作
+  * add（class） --添加类
+  * remove（class） --- 删除类
+  * toggle（class） --- 不存在就添加，存在就移除
+  * contains(class)  --- 检查是否存在， 返回true，false
+
+### 元素样式
+* style 
+  * 可读可写
+  * 多词使用驼峰命名法
+  * 浏览器前缀也是驼峰命名法
+### 样式重置
+* document.body.style.display = "" 将属性设置为空字符串， 浏览器通常会引用css类以及内建样式，就好像没有style属性一样
+* style.cssText 来完全重写
+  * 可读可写
+  * 覆盖样式，完全重写
+**单位需要添加**
+
+### 计算样式： getComputedStyle
+* ele.style只能获取 style内联样式起作用，无法对css书写的样式生效
+解决办法： getComputedStyle(elem,[pseudo ])
+  * element 要读取样式值的元素
+  * pseudo 伪元素， 例如::before（不写既不需要，意味着元素本身）
+  * 只读
+```javascript
+    alert(computed.margin)
+```
+
+## 元素大小和滚动
+### offsetParent ,offsetLeft/Top
+### offsetParent: 最接近的祖先]
+  * offsetLeft,offsetTop提供相对于offsetParent左上角的x/y坐标
+  祖先元素：
+  1. css定位的position为absolute，relative，fixed；
+  2. td,th,table
+  3. body
+  * offsetParent的值为null的情况：
+  1. 对于未显示的元素（display：none）
+  2. 对于< body>< html>元素
+  3. 对于带有position：fixed的元素
+####  offsetWidth/offsetHeight
+  * 提供了外部的width/height，完整大小，包括边框，padding， 滚动条
+  * 计算 offsetWidth = width + padding + border + 滚动条
+* 未显示的元素。 几何属性为0/null(如一个元素（或其任何祖先）具有display：none，或不在文档中，则所有几何属性均为零)
+
+### clientTop/left Width/Height
+#### clientTop/left
+* 测量边框（相对坐标），并不是边框的width/height
+* clientLeft === 左边框宽度
+* clientTop === 上边框宽度
+
+#### clientWidth/Height
+* 提供元素边框内区域的大小（不包括滚动条）
+* 计算： clientWidth = width+ padding
+* 没有padding时可以用来计算内容区域的大小
+
+### scrollWidth/Height
+和 clientWidth类似，但包括滚动出不可见的部分
+#### scrollLeft/scrollTop
+元素滚动到多少了
+scrollLeft/scrollTop 是可修改的
+
+
+### 不要从css中获取width/height
+* css的width和height受box-sizing控制
+* css的width和height可能是auto
+* 滚动条
+
+### clientWidth和width的区别
+* clientWidth的值是数值，而getComputedStyle(elem).width返回的是已px作为后缀的字符串
+* getComputedStyle(elem).width会返会非数值的width，如auto
+* clientWidth会包括padding，而css with(box-sizing)不包括padding
+* 如果有滚动条clientWidth总是会减去滚动条，而width则根据浏览器来
