@@ -1,34 +1,41 @@
 <!DOCTYPE HTML>
 <html>
-
 <head>
-  <style>
-    #field {
-      width: 200px;
-      border: 10px groove black;
-      background-color: #00FF00;
-      position: relative;
-    }
-
-    #ball {
-      position: absolute;
-    }
-  </style>
+  <meta charset="utf-8">
 </head>
-
+<style>
+  ul{
+    display: none;
+  }
+  #zhankai{
+    display: none;
+  }
+</style>
 <body>
 
-
-  <div id="field">
-    <img src="https://en.js.cx/clipart/ball.svg" width="40" height="40" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-   . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-  </div>
-
-
-</body>
+<div id="div"> <span id="shouqi"> ▶ </span> <span id="zhankai">▼</span> Sweeties (click me)!</div>
+  <ul>
+    <li>Cake</li>
+    <li>Donut</li>
+    <li>Honey</li>
+  </ul>
 <script>
-  // ball.style.left =(field.clintWidth/2 - ball.style.width/2)+'px'
-  ball.style.left = Math.round(field.clientWidth/2) -Math.round(ball.offsetWidth/2) +'px'
-  ball.style.top = Math.round(field.clientHeight/2)-Math.round(ball.offsetHeight/2) +'px' 
+  let flag = true
+ div.onclick = function(e){
+   if(flag){
+    document.querySelector('ul').style.display = "block"
+    document.querySelector('#zhankai').style.display = "inline-block"
+    document.querySelector('#shouqi').style.display = "none"
+
+
+   }else{
+    document.querySelector('ul').style.display = "none"
+    document.querySelector('#shouqi').style.display = "inline-block"
+    document.querySelector('#zhankai').style.display = "none"
+
+   }
+   flag = !flag
+ }
 </script>
+</body>
 </html>

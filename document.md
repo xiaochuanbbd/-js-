@@ -357,3 +357,65 @@ scrollLeft/scrollTop 是可修改的
 * getComputedStyle(elem).width会返会非数值的width，如auto
 * clientWidth会包括padding，而css with(box-sizing)不包括padding
 * 如果有滚动条clientWidth总是会减去滚动条，而width则根据浏览器来
+
+## window大小和滚动
+### 窗口的大小和width和height
+* document.documentElement.clientWidth/clientHeight 会除开浏览器的滚动条宽度和高度
+
+### 获得当前滚动
+* DOM元素的当前滚动状态在其scrollLeft/scrollTop属性中
+* window.pageYOffset 顶部滚动的距离
+* window.pagexOffset 左侧滚动的距离
+  * window.pageXOffset 是 window.scrollX 的别名。
+  * window.pageYOffset 是 window.scrollY 的别名。
+
+### 滚动： scrollTo,scrollBy,scrollIntoView
+**必须在DOM完全构建后才能通过JavaScript滚动页面**
+* window.scrollTo(pageX,pageY) 将页面滚动至绝对坐标的pageX,pageY的位置（可见部分左上角相对于文档的坐标）
+* window.scrollBy(pageX,pageY) 将页面滚动相对于当前位置的（x,y）位置
+* elem.scrollIntoView(top) 
+  * top:布尔值
+  * top=true 页面滚动，使elem出现在窗口顶部，元素的上边缘与窗口底部对齐
+  * top=false 页面滚动，使elem出现在窗口底部，元素的底部边缘将于窗口底部对齐
+
+### 禁止滚动
+* document.body.style.overflow = "hidden"将页面冻结
+
+
+## 坐标
+坐标系的处理方式
+1. 相对于窗口： 类似于 position:fixed; 
+  * 使用clientX,clientY表示
+2. 相对于文档： 类似于position:absolute;
+  * 使用 pageX,pageY表示
+
+### 窗口坐标
+#### 元素坐标:getBoundingClientRect
+elem.getBoundingClientRect()返回最小矩形的窗口坐标，该矩形将elem作为内建DOMRect类的对象
+DOMRect():
+ * x/y ---矩形原点相对于窗口的X/Y坐标；
+ * width/height --矩形的width/height 
+ * top/bottom - -边缘的Y坐标
+ * left/right -- 左/右矩形边缘的X坐标
+ * left = x
+ * top = y
+ * right = x + width
+ * bottom = y + height
+ps：
+ * ie不支持 (polify)
+ * right/bottom 和css position 属性不一样
+
+####   elementFromPoint(x,y)
+* 返回在窗口坐标（x,y)处嵌套最多的元素
+* 会因滚动位置而有所不同
+* 在窗口之外的坐标，elementFromPoint返回null
+* 只对可见区域内的坐标起作用
+
+### 文档坐标
+文档相对坐标从文档的左上角开始计算，而不是窗口
+* pageY = clientY + 文档的垂直滚动出来的部分的高度
+* pageX = clientX + 文档水平滚动出来的部分的宽度
+
+### 总结： 
+1. 相对于窗口的坐标： elem.getBoundingClientRect() ---适合和fixed一起使用
+2. 相对于文档的坐标： elem.getBoundingClientRect() + 当前页面滚动的距离（pageXOffset） ---适合和absolute一起使用
