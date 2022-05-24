@@ -85,7 +85,7 @@ PS:直接使用id。如果有js赋值的情况下，优先js(一般不用这个)
   * 可以使用伪类
 * elem.querySelector(css) 调用返回选择器选择的第一个元素
 * elem.matches（css） 检查elem是否与给定的CSS选择器匹配，返回值 true/false
-* elem.closest(css) 查找与css选择器匹配的最近的祖先 
+* elem.closest(selector) 查找与css选择器匹配的最近的祖先 
 * getElementsBy*
   * getElementsByTagName(tag) 查找具有给定标签的元素，并返回他们的集合， tag参数可以是 “*”
   * ele.getElementsByClassName(classname) 返回具有给定class类的元素
