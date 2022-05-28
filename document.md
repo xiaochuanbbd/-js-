@@ -419,3 +419,93 @@ ps：
 ### 总结： 
 1. 相对于窗口的坐标： elem.getBoundingClientRect() ---适合和fixed一起使用
 2. 相对于文档的坐标： elem.getBoundingClientRect() + 当前页面滚动的距离（pageXOffset） ---适合和absolute一起使用
+
+## window
+ 
+window.open('https://...')
+### 阻止弹窗：
+**如果弹窗是在用户触发的事件处理程序（如 onclick）之外调用的，大多数浏览器都会阻止此类弹窗。**
+### 语法
+window.open(url,name,params)
+* url: 新窗口中加载的URL
+* name：新窗口的名字
+* params： 新窗口的配置字符串
+
+### 关闭弹窗
+* window.close()
+* 检查一个窗口是否被关闭： window.close ，为true表示关闭
+* close可以用于任何window，但如果window不是通过window.open（）创建的， 浏览器会忽略window.close()
+
+## 跨窗口通信
+同源策略： 保护用户免遭信息盗窃
+### “同源”策略规定：
+* 如果我们有对另外一个窗口（例如，一个使用 window.open 创建的弹窗，或者一个窗口中的 iframe）的引用，并且该窗口是同源的，那么我们就具有对该窗口的全部访问权限。
+* 否则，如果该窗口不是同源的，那么我们就无法访问该窗口中的内容：变量，文档，任何东西。唯一的例外是 location：我们可以修改它（进而重定向用户）。但是我们无法读取 location（因此，我们无法看到用户当前所处的位置，也就不会泄漏任何信息）。
+
+### iframe标签
+承载了一个单独的嵌入的窗口，它具有自己的document和window
+* iframe.contentWindow  来获取 <iframe> 中的 window。
+* iframe.contentDocument 来获取 <iframe> 中的 document，是
+iframe.contentWindow.document 的简写形式。
+**iframe标签必须同源。不同源会拒绝访问**
+* 加载iframe事件
+iframe.contentWindow.onload === iframe.onload 当嵌入的窗口的所有资源都完全加载完毕时触发。
+ 无法使用iframe.contentWindow.onload访问不同源的iframe
+
+### 子域名上的window ：document.domain
+仅适用于窗口的二级域相同时可以使用
+document.domain = 'xxx'
+
+**不能在iframe未加载完前对文档进行处理，那是错误的文档&**
+
+### 页面集合iframe window.frames
+* 通过索引： window.frames[0] 获取文档中第一个iframe的window对象
+* 同名称 ： window.frames.iframeName 获取name="iframeName" 的iframe的window对象
+#### 一个 iframe 内可能嵌套了其他的 iframe。相应的 window 对象会形成一个层次结构（hierarchy）。
+可以通过以下方式获取：
+*window.frames —— “子”窗口的集合（用于嵌套的 iframe）。
+* window.parent —— 对“父”（外部）窗口的引用。
+* window.top —— 对最顶级父窗口的引用。
+
+### sandbox iframe特性
+允许在iframe中禁止某些行为 ，它会被强制处于“非同源”状态
+* 空的 sandbox会施加最严格的限制
+
+### 跨窗口通信
+postMessage 接口允许窗口之间相互通信，无论他们来自什么源--是解决同源策略的方式之一
+#### postMessage 
+发消息：win.postMessage(data, targetOrigin)
+data： 要发送的数据
+targetOrigin : 目标窗口的源，只有来自给定的源的窗口才能获得该信息
+              * 表示不做同源检查
+
+#### onmessage
+接收消息： 当postMessage被调用时触发，并且targettOrigin检查成果了
+* data 从postmessage接受到的信息
+* origin 发送方的源
+* source 对对方窗口的应用 
+* 使用 addEventListener 来在目标窗口中设置 message 事件的处理程序。
+
+## 点击劫持攻击
+点击劫持攻击 允许恶意页面以用户的名义点击受害网站
+### 原理：
+1. 访问者被恶意页面吸引。怎样吸引的不重要。
+2. 页面上有一个看起来无害的链接（例如：“变得富有”或者“点我，超好玩！”）。
+3. 恶意页面在该链接上方放置了一个透明的 <iframe>，其 src 来自于 facebook.com，这使得“点赞”按钮恰好位于该链接上面。这通常是通过 z-index 实现的。
+4. 用户尝试点击该链接时，实际上点击的是“点赞”按钮。
+
+### 防御：
+#### 传统防御：
+禁止在frame页面中打开JavaScript代码
+* X-Frame-Options 可以允许或禁止在frame中显示页面
+  * DENY
+  始终禁止在 frame 中显示此页面。
+  * SAMEORIGIN
+  允许在和父文档同源的 frame 中显示此页面。
+  * ALLOW-FROM domain
+  允许在来自给定域的父文档的 frame 中显示此页面。
+  * X-Frame-Options 有一个副作用。其他的网站即使有充分的理由也无法在 frame 中显示我们的页面。
+
+#### 总结：
+*  建议在那些不希望被在 frame 中查看的页面上（或整个网站上）使用 X-Frame-Options: SAMEORIGIN。
+*  如果我们希望允许在 frame 中显示我们的页面，那我们使用一个 <div> 对整个页面进行遮盖，这样也是安全的。
