@@ -11,13 +11,23 @@
 <body>
    <input type="file"  onchange="showFile(this)">
   <script>
- function showFile(input) {
-  let file = input.files[0];
-  console.log(input.files);
-
-  alert(`File name: ${file.name}`); // 例如 my.png
-  alert(`Last modified: ${file.lastModified}`); // 例如 1552830408824
-}
+    Function.prototype._bind = function(){
+      let args =  Array.from(arguments)
+      let _this = args.shift()
+      let context = this
+      return function(){
+        context.call(_this,...arguments)
+      }
+    }
+    let obj = {
+      name:123
+    }
+    function fn(a,b){
+      console.log(this.name);
+      console.log(a,b);
+    }
+    let foo = fn._bind(obj)
+    foo(1,2)
   </script>
 </body>
 
